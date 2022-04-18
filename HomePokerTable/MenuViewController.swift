@@ -7,6 +7,10 @@
 
 import UIKit
 
+/*
+ TODO: Give highlight on player button
+ TODO: Give radius on buttons and views
+ */
 class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
