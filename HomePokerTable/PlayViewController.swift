@@ -18,6 +18,15 @@ class PlayViewController: UIViewController {
     let cellIdentifier: String = "playerCell"
     
     // MARK: IBOutlets
+    @IBOutlet weak var potAmountLabel: UILabel!
+    @IBOutlet weak var awardButton: UIButton!
+    @IBOutlet weak var playerCollectionView: UICollectionView!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var betButton: UIButton!
+    @IBOutlet weak var chip005Button: UIButton!
+    @IBOutlet weak var chip010Button: UIButton!
+    @IBOutlet weak var chip050Button: UIButton!
+    @IBOutlet weak var chip100Button: UIButton!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {

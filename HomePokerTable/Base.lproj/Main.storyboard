@@ -194,6 +194,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AQv-bz-6rx"/>
+                    <connections>
+                        <outlet property="assetButton" destination="uAh-7G-tl5" id="ngL-3t-e8Q"/>
+                        <outlet property="clearButton" destination="fav-6s-h7g" id="two-Ni-eSh"/>
+                        <outlet property="numberButton" destination="gKI-Hs-Tl0" id="T8L-PI-C2c"/>
+                        <outlet property="playerView" destination="MPB-Ie-EIA" id="PCE-75-pJ1"/>
+                        <outlet property="startButton" destination="zKf-8Q-ioo" id="1mN-Fx-lE3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,7 +284,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gU4-4x-gYu">
                                                             <rect key="frame" x="0.0" y="49" width="174" height="49"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQe-d3-bFw">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQe-d3-bFw">
                                                                     <rect key="frame" x="0.0" y="0.0" width="87" height="49"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -306,6 +313,11 @@
                                                 <constraint firstItem="Zhg-FI-f3N" firstAttribute="leading" secondItem="NxI-8O-rlw" secondAttribute="leading" id="zRO-Qn-PKf"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="assetButton" destination="bnY-Ii-JOJ" id="C5n-YK-hWl"/>
+                                            <outlet property="betLabel" destination="GQe-d3-bFw" id="5aL-2n-1UQ"/>
+                                            <outlet property="playerButton" destination="K9T-wq-fRm" id="vJh-Ft-dWb"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -385,6 +397,17 @@
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="NIb-HY-Uwr">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hN6-vy-dLg"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="awardButton" destination="sQq-Gs-D0n" id="wgJ-Cv-CY5"/>
+                        <outlet property="betButton" destination="pnc-fc-HLS" id="NU0-FG-Uvg"/>
+                        <outlet property="chip005Button" destination="yw2-at-V03" id="KNW-d8-bcX"/>
+                        <outlet property="chip010Button" destination="zdj-r6-PLr" id="p9i-sJ-UYT"/>
+                        <outlet property="chip050Button" destination="tNh-iF-7qk" id="AI5-cH-ooD"/>
+                        <outlet property="chip100Button" destination="glq-9Z-BJV" id="sts-Zd-pAB"/>
+                        <outlet property="clearButton" destination="RMp-TR-Snk" id="JZz-pg-Gph"/>
+                        <outlet property="playerCollectionView" destination="XbY-cq-0e7" id="XNy-RP-Yzc"/>
+                        <outlet property="potAmountLabel" destination="h9J-jE-uaI" id="NVJ-GE-mui"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prw-XC-1AA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

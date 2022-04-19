@@ -16,6 +16,11 @@ class MenuViewController: UIViewController {
     // MARK: - Properties
     
     // MARK: IBOutlets
+    @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var assetButton: UIButton!
+    @IBOutlet weak var numberButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
