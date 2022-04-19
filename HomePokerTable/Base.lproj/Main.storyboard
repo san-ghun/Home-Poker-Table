@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -150,7 +151,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Clear"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKf-8Q-ioo">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKf-8Q-ioo">
                                         <rect key="frame" x="191" y="0.0" width="171" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
@@ -214,9 +215,9 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Pot">
                                                 <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <font key="NSFont" size="48" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="12" lineHeightMultiple="2.5" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="15" lineHeightMultiple="2.5" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -227,9 +228,8 @@
                                         <attributedString key="attributedText">
                                             <fragment content="1000">
                                                 <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="48" name="HelveticaNeue-Bold"/>
-                                                    <font key="NSOriginalFont" size="48" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="2.5" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -242,12 +242,102 @@
                                     <constraint firstAttribute="height" constant="160" id="H6Y-H2-nK7"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQq-Gs-D0n">
+                                <rect key="frame" x="108" y="172" width="174" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Award"/>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-cq-0e7">
+                                <rect key="frame" x="14" y="232" width="362" height="373"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PZs-1z-0Sd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zzP-vb-mG0">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NxI-8O-rlw">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kJO-kf-3z7">
+                                <rect key="frame" x="14" y="623" width="362" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMp-TR-Snk">
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="48"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Clear"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-fc-HLS">
+                                        <rect key="frame" x="191" y="0.0" width="171" height="48"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Bet"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ecT-sJ-X6C">
+                                <rect key="frame" x="8" y="688" width="374" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw2-at-V03">
+                                        <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="90"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="5" backgroundImage="chip005"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdj-r6-PLr">
+                                        <rect key="frame" x="93.666666666666686" y="0.0" width="93.333333333333314" height="90"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="10" backgroundImage="chip010"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNh-iF-7qk">
+                                        <rect key="frame" x="187" y="0.0" width="93.666666666666686" height="90"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="50" backgroundImage="chip050"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glq-9Z-BJV">
+                                        <rect key="frame" x="280.66666666666669" y="0.0" width="93.333333333333314" height="90"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="100" backgroundImage="chip100"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wap-sG-TEg"/>
                         <color key="backgroundColor" red="0.27450980392156865" green="0.47058823529411764" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="sQq-Gs-D0n" firstAttribute="top" secondItem="YhU-ct-eXj" secondAttribute="bottom" constant="12" id="19U-ln-hLm"/>
+                            <constraint firstItem="kJO-kf-3z7" firstAttribute="top" secondItem="XbY-cq-0e7" secondAttribute="bottom" constant="18" id="5Vl-hE-D3r"/>
+                            <constraint firstItem="kJO-kf-3z7" firstAttribute="leading" secondItem="wap-sG-TEg" secondAttribute="leading" constant="14" id="7v5-Ux-JjF"/>
+                            <constraint firstItem="XbY-cq-0e7" firstAttribute="leading" secondItem="wap-sG-TEg" secondAttribute="leading" constant="14" id="8Aj-JP-fWU"/>
+                            <constraint firstItem="ecT-sJ-X6C" firstAttribute="top" secondItem="kJO-kf-3z7" secondAttribute="bottom" constant="17" id="B0q-dB-ZW3"/>
+                            <constraint firstItem="wap-sG-TEg" firstAttribute="bottom" secondItem="ecT-sJ-X6C" secondAttribute="bottom" constant="32" id="I0q-gF-juX"/>
+                            <constraint firstItem="XbY-cq-0e7" firstAttribute="top" secondItem="sQq-Gs-D0n" secondAttribute="bottom" constant="12" id="LDU-3e-rn8"/>
+                            <constraint firstItem="ecT-sJ-X6C" firstAttribute="leading" secondItem="wap-sG-TEg" secondAttribute="leading" constant="8" id="Q9y-Wf-eed"/>
                             <constraint firstItem="YhU-ct-eXj" firstAttribute="leading" secondItem="wap-sG-TEg" secondAttribute="leading" id="Sjt-st-M37"/>
+                            <constraint firstItem="kJO-kf-3z7" firstAttribute="centerX" secondItem="9vG-CT-Ryb" secondAttribute="centerX" id="XOM-39-0H2"/>
+                            <constraint firstItem="wap-sG-TEg" firstAttribute="trailing" secondItem="kJO-kf-3z7" secondAttribute="trailing" constant="14" id="aXh-3J-XIy"/>
+                            <constraint firstItem="wap-sG-TEg" firstAttribute="trailing" secondItem="ecT-sJ-X6C" secondAttribute="trailing" constant="8" id="bAX-DQ-wiv"/>
+                            <constraint firstItem="sQq-Gs-D0n" firstAttribute="leading" secondItem="wap-sG-TEg" secondAttribute="leading" constant="108" id="bFH-kI-9dQ"/>
+                            <constraint firstItem="sQq-Gs-D0n" firstAttribute="centerX" secondItem="9vG-CT-Ryb" secondAttribute="centerX" id="d90-VA-i7Y"/>
+                            <constraint firstItem="wap-sG-TEg" firstAttribute="trailing" secondItem="XbY-cq-0e7" secondAttribute="trailing" constant="14" id="dt3-W3-vtV"/>
                             <constraint firstItem="YhU-ct-eXj" firstAttribute="top" secondItem="9vG-CT-Ryb" secondAttribute="top" id="i9O-Rb-iAI"/>
+                            <constraint firstItem="ecT-sJ-X6C" firstAttribute="centerX" secondItem="9vG-CT-Ryb" secondAttribute="centerX" id="tEB-83-9fU"/>
+                            <constraint firstItem="XbY-cq-0e7" firstAttribute="centerX" secondItem="9vG-CT-Ryb" secondAttribute="centerX" id="tky-Mb-hG8"/>
                             <constraint firstItem="wap-sG-TEg" firstAttribute="trailing" secondItem="YhU-ct-eXj" secondAttribute="trailing" id="xEd-5p-Sze"/>
                         </constraints>
                     </view>
@@ -280,5 +370,9 @@
     </scenes>
     <resources>
         <image name="cards" width="360.5" height="356"/>
+        <image name="chip005" width="89.5" height="89.5"/>
+        <image name="chip010" width="90" height="90"/>
+        <image name="chip050" width="89.5" height="89.5"/>
+        <image name="chip100" width="89.5" height="89.5"/>
     </resources>
 </document>
