@@ -7,8 +7,19 @@
 
 import UIKit
 
+/*
+ TODO: Give highlight on player button
+ TODO: Give radius on buttons and views
+ TODO: Complete CollectionView and custom collectionViewCell
+ */
 class PlayViewController: UIViewController {
 
+    // MARK: - Properties
+    let cellIdentifier: String = "playerCell"
+    
+    // MARK: IBOutlets
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,4 +37,10 @@ class PlayViewController: UIViewController {
     }
     */
 
+    // MARK: - Methods
+    
+    // MARK: Custom Methods
+    
+    // MARK: IBActions
+    
 }

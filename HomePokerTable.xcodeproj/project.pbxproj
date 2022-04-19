@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BDC7B1D2280F3D6A00551BE3 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */; };
 		BDEDE92B280DCC0300439A5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEDE92A280DCC0300439A5F /* AppDelegate.swift */; };
 		BDEDE92D280DCC0300439A5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */; };
 		BDEDE92F280DCC0300439A5F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEDE92E280DCC0300439A5F /* MenuViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDEDE927280DCC0300439A5F /* HomePokerTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomePokerTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEDE92A280DCC0300439A5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */,
 				BDEDE92E280DCC0300439A5F /* MenuViewController.swift */,
 				BDEDE930280DCC0300439A5F /* Main.storyboard */,
+				BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */,
 				BDEDE93E280DE40500439A5F /* PlayViewController.swift */,
 				BDEDE933280DCC0800439A5F /* Assets.xcassets */,
 				BDEDE935280DCC0800439A5F /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				BDEDE92F280DCC0300439A5F /* MenuViewController.swift in Sources */,
 				BDEDE92B280DCC0300439A5F /* AppDelegate.swift in Sources */,
 				BDEDE92D280DCC0300439A5F /* SceneDelegate.swift in Sources */,
+				BDC7B1D2280F3D6A00551BE3 /* PlayerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
