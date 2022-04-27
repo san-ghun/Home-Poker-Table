@@ -7,6 +7,9 @@
 
 import UIKit
 
+// TODO: Add player asset setting ViewController that show up as modal with pickerView to set asset value manually, minimum button and maximum button, and some label to let user know how to use it.
+// TODO: Asset value from min 5 to max 10000, in pickerView has interval 5.
+// TODO: Player number from min 2 to max 8. Pick by pickerView or tap-increment.
 class MenuViewController: UIViewController {
 
     // MARK: - Properties
@@ -17,7 +20,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var playerButton: UIButton!
     @IBOutlet weak var assetButton: UIButton!
     @IBOutlet weak var numberButton: UIButton!
-    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
     // MARK: - Life Cycle
@@ -41,7 +44,7 @@ class MenuViewController: UIViewController {
         let addRadius20Views: Array = [
             self.playerView,
             self.numberButton,
-            self.clearButton,
+            self.resetButton,
             self.startButton
         ]
         
@@ -58,7 +61,7 @@ class MenuViewController: UIViewController {
         self.addRadiusToView(uiView: self.howToView, radius: 10)
         self.addRadiusToView(uiView: self.playerView, radius: 20)
         self.addRadiusToView(uiView: self.numberButton, radius: 20)
-        self.addRadiusToView(uiView: self.clearButton, radius: 20)
+        self.addRadiusToView(uiView: self.resetButton, radius: 20)
         self.addRadiusToView(uiView: self.startButton, radius: 20)
         
         self.addBorderToPlayerView()
