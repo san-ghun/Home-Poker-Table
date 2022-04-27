@@ -197,7 +197,9 @@
                     <connections>
                         <outlet property="assetButton" destination="uAh-7G-tl5" id="ngL-3t-e8Q"/>
                         <outlet property="clearButton" destination="fav-6s-h7g" id="two-Ni-eSh"/>
+                        <outlet property="howToView" destination="PAi-Kj-hKX" id="4lb-lq-Nga"/>
                         <outlet property="numberButton" destination="gKI-Hs-Tl0" id="T8L-PI-C2c"/>
+                        <outlet property="playerButton" destination="sRj-mB-uXA" id="QvO-s9-XsZ"/>
                         <outlet property="playerView" destination="MPB-Ie-EIA" id="PCE-75-pJ1"/>
                         <outlet property="startButton" destination="zKf-8Q-ioo" id="1mN-Fx-lE3"/>
                     </connections>
@@ -258,6 +260,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-cq-0e7">
                                 <rect key="frame" x="14" y="232" width="362" height="391"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PZs-1z-0Sd">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -316,6 +319,7 @@
                                         <connections>
                                             <outlet property="assetButton" destination="bnY-Ii-JOJ" id="C5n-YK-hWl"/>
                                             <outlet property="betLabel" destination="GQe-d3-bFw" id="5aL-2n-1UQ"/>
+                                            <outlet property="contentView" destination="NxI-8O-rlw" id="HPC-WR-Jol"/>
                                             <outlet property="playerButton" destination="K9T-wq-fRm" id="vJh-Ft-dWb"/>
                                         </connections>
                                     </collectionViewCell>

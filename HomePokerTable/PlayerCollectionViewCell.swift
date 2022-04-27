@@ -17,4 +17,21 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var assetButton: UIButton!
     
     
+    // TODO: Give radius and border to CollectionViewCell
+    /*
+     as Reference
+     
+     func addRadiusToView(uiView: UIView?, radius: Int) {
+         guard let view = uiView else { return }
+         view.layer.cornerRadius = CGFloat(radius)
+     }
+     
+     func addBorderToPlayerView() {
+         guard let view = self.playerView else { return }
+         view.layer.borderWidth = 3
+         view.layer.borderColor = UIColor(red: 0.192, green: 0.294, blue: 0.169, alpha: 1).cgColor
+     }
+     */
+    
+    // TODO: Give highlight on [playerButton]
 }

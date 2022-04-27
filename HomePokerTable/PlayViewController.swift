@@ -9,7 +9,6 @@ import UIKit
 
 /*
  TODO: Give highlight on player button
- TODO: Give radius on buttons and views
  TODO: Complete CollectionView and custom collectionViewCell
  */
 class PlayViewController: UIViewController {
@@ -33,6 +32,7 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.addStyleToComponents()
     }
     
 
@@ -49,7 +49,18 @@ class PlayViewController: UIViewController {
     // MARK: - Methods
     
     // MARK: Custom Methods
+    func addStyleToComponents() {
+        self.addRadiusToView(uiView: self.awardButton, radius: 20)
+        self.addRadiusToView(uiView: self.clearButton, radius: 20)
+        self.addRadiusToView(uiView: self.betButton, radius: 20)
+    }
     
     // MARK: IBActions
+    
+    // MARK: Styling Component Methods
+    func addRadiusToView(uiView: UIView?, radius: Int) {
+        guard let view = uiView else { return }
+        view.layer.cornerRadius = CGFloat(radius)
+    }
     
 }
