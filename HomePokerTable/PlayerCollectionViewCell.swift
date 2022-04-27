@@ -12,6 +12,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     // MARK: IBOutlets
+    @IBOutlet weak var playerCellView: UIView!
     @IBOutlet weak var playerButton: UIButton!
     @IBOutlet weak var betLabel: UILabel!
     @IBOutlet weak var assetButton: UIButton!
@@ -34,4 +35,14 @@ class PlayerCollectionViewCell: UICollectionViewCell {
      */
     
     // TODO: Give highlight on [playerButton]
+    /*
+     as Reference
+     
+    func addStyleToPlayerButton() {
+        guard let button = self.playerButton else { return }
+        button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
+        button.layer.cornerRadius = 20
+        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    */
 }

@@ -34,7 +34,7 @@ class MenuViewController: UIViewController {
     // MARK: Custom Methods
     func addStyleToComponents() {
         
-        // Which would be the better code to apply radius on views?
+        // TODO: Which would be the better code to apply radius on views?
         
         // Option 1
         /*
@@ -62,6 +62,8 @@ class MenuViewController: UIViewController {
         self.addRadiusToView(uiView: self.startButton, radius: 20)
         
         self.addBorderToPlayerView()
+        
+        self.addStyleToPlayerButton()
     }
     
     // MARK: IBActions
@@ -79,7 +81,12 @@ class MenuViewController: UIViewController {
     }
     
     // TODO: Give highlight on [playerButton]
-    
+    func addStyleToPlayerButton() {
+        guard let button = self.playerButton else { return }
+        button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
+        button.layer.cornerRadius = 20
+        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
     
 }
 
