@@ -45,4 +45,9 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     */
+    
+    // TODO: A method to Activate and Deactivate playerButton
+    func switchPlayerButton() {
+        
+    }
 }

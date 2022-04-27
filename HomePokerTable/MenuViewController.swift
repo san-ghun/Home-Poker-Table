@@ -80,7 +80,6 @@ class MenuViewController: UIViewController {
         view.layer.borderColor = UIColor(red: 0.192, green: 0.294, blue: 0.169, alpha: 1).cgColor
     }
     
-    // TODO: Give highlight on [playerButton]
     func addStyleToPlayerButton() {
         guard let button = self.playerButton else { return }
         button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor

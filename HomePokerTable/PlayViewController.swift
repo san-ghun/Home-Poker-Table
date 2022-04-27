@@ -55,6 +55,12 @@ class PlayViewController: UIViewController {
         self.addRadiusToView(uiView: self.betButton, radius: 20)
     }
     
+    // TODO: A method to Activate and Deactivate betButton
+    func switchBetButton() {
+        
+    }
+    
+    
     // MARK: IBActions
     
     // MARK: Styling Component Methods
