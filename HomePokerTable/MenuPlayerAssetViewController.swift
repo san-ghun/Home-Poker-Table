@@ -8,7 +8,18 @@
 import UIKit
 
 class MenuPlayerAssetViewController: UIViewController {
-
+    
+    // MARK: - Properties
+    
+    // MARK: IBOutlets
+    @IBOutlet weak var minLabel: UILabel!
+    @IBOutlet weak var maxLabel: UILabel!
+    @IBOutlet weak var currentLabel: UILabel!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var setAssetButton: UIButton!
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,5 +36,12 @@ class MenuPlayerAssetViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // MARK: - Methods
+    
+    // MARK: Custom Methods
+    
+    // MARK: IBActions
 
 }
