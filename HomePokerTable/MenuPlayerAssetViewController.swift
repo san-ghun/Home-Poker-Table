@@ -24,6 +24,7 @@ class MenuPlayerAssetViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.addStyleToComponents()
     }
     
 
@@ -41,6 +42,16 @@ class MenuPlayerAssetViewController: UIViewController {
     // MARK: - Methods
     
     // MARK: Custom Methods
+    func addStyleToComponents() {
+        self.addRadiusToView(uiView: cancelButton, radius: 20)
+        self.addRadiusToView(uiView: setAssetButton, radius: 20)
+    }
+    
+    // MARK: Styling Component Methods
+    func addRadiusToView(uiView: UIView?, radius: Int) {
+        guard let view = uiView else { return }
+        view.layer.cornerRadius = CGFloat(radius)
+    }
     
     // MARK: IBActions
 
