@@ -69,9 +69,7 @@ class MenuViewController: UIViewController {
         self.addStyleToPlayerButton()
     }
     
-    // MARK: IBActions
-    
-    // MARK: Styling Component Methods
+    // MARK: Component Styling Methods
     func addRadiusToView(uiView: UIView?, radius: Int) {
         guard let view = uiView else { return }
         view.layer.cornerRadius = CGFloat(radius)
@@ -90,5 +88,7 @@ class MenuViewController: UIViewController {
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
+    
+    // MARK: IBActions
 }
 

@@ -47,7 +47,7 @@ class MenuPlayerAssetViewController: UIViewController {
         self.addRadiusToView(uiView: setAssetButton, radius: 20)
     }
     
-    // MARK: Styling Component Methods
+    // MARK: Component Styling Methods
     func addRadiusToView(uiView: UIView?, radius: Int) {
         guard let view = uiView else { return }
         view.layer.cornerRadius = CGFloat(radius)
