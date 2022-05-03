@@ -17,7 +17,7 @@ class MenuViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var howToView: UIView!
     @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var playerButton: UIButton!
+    @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var assetButton: UIButton!
     @IBOutlet weak var numberButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
@@ -78,7 +78,7 @@ class MenuViewController: UIViewController {
         
         self.addBorderToPlayerView()
         
-        self.addStyleToPlayerButton()
+        self.addStyleToPlayerLabel()
     }
     
     // MARK: Component Styling Methods
@@ -93,8 +93,8 @@ class MenuViewController: UIViewController {
         view.layer.borderColor = UIColor(red: 0.192, green: 0.294, blue: 0.169, alpha: 1).cgColor
     }
     
-    func addStyleToPlayerButton() {
-        guard let button = self.playerButton else { return }
+    func addStyleToPlayerLabel() {
+        guard let button = self.playerLabel else { return }
         button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
         button.layer.cornerRadius = 20
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]

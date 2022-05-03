@@ -38,7 +38,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     /*
      as Reference
      
-    func addStyleToPlayerButton() {
+    func addStyleToPlayerLabel() {
         guard let button = self.playerButton else { return }
         button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
         button.layer.cornerRadius = 20
