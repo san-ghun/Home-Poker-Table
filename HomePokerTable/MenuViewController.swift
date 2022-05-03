@@ -29,6 +29,18 @@ class MenuViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.addStyleToComponents()
+        
+        let playerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpPlayerView(_:)))
+        self.playerView.addGestureRecognizer(playerViewTapGesture)
+    }
+
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
 
 
@@ -90,5 +102,25 @@ class MenuViewController: UIViewController {
     
     
     // MARK: IBActions
+    @IBAction func touchUpPlayerView(_ sender: Any) {
+        
+        // option 1 / NotWork
+//        let rootVC = MenuPlayerAssetViewController()
+//        let navVC = UINavigationController(rootViewController: rootVC)
+//        present(navVC, animated: true, completion: nil)
+        
+        // option 2 / PrettyGood
+//        let rootVC = storyboard?.instantiateViewController(withIdentifier: "mpaVC") as! MenuPlayerAssetViewController
+//        present(rootVC, animated: true, completion: nil)
+        
+        // option 3 / WorkButUgly
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "mpaVC") as? MenuPlayerAssetViewController
+//        view.window?.rootViewController = vc
+//        view.window?.makeKeyAndVisible()
+        
+        // option 4 / PrettyGood
+        performSegue(withIdentifier: "mpaSegue", sender: nil)
+        
+    }
 }
 
