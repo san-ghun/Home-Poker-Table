@@ -17,7 +17,7 @@ class MenuViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var howToView: UIView!
     @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var playerButton: UIButton!
+    @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var assetButton: UIButton!
     @IBOutlet weak var numberButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
@@ -29,6 +29,19 @@ class MenuViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.addStyleToComponents()
+        
+        // Add TapGestureRecognizer to playerView to show MenuPlayerAssetViewController
+        let playerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpPlayerView(_:)))
+        self.playerView.addGestureRecognizer(playerViewTapGesture)
+    }
+
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
 
 
@@ -66,12 +79,10 @@ class MenuViewController: UIViewController {
         
         self.addBorderToPlayerView()
         
-        self.addStyleToPlayerButton()
+        self.addStyleToPlayerLabel()
     }
     
-    // MARK: IBActions
-    
-    // MARK: Styling Component Methods
+    // MARK: Component Styling Methods
     func addRadiusToView(uiView: UIView?, radius: Int) {
         guard let view = uiView else { return }
         view.layer.cornerRadius = CGFloat(radius)
@@ -83,12 +94,34 @@ class MenuViewController: UIViewController {
         view.layer.borderColor = UIColor(red: 0.192, green: 0.294, blue: 0.169, alpha: 1).cgColor
     }
     
-    func addStyleToPlayerButton() {
-        guard let button = self.playerButton else { return }
+    func addStyleToPlayerLabel() {
+        guard let button = self.playerLabel else { return }
         button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
         button.layer.cornerRadius = 20
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
+    
+    // MARK: IBActions
+    @IBAction func touchUpPlayerView(_ sender: Any) {
+        
+        // option 1 / NotWork
+//        let rootVC = MenuPlayerAssetViewController()
+//        let navVC = UINavigationController(rootViewController: rootVC)
+//        present(navVC, animated: true, completion: nil)
+        
+        // option 2 / PrettyGood
+//        let rootVC = storyboard?.instantiateViewController(withIdentifier: "mpaVC") as! MenuPlayerAssetViewController
+//        present(rootVC, animated: true, completion: nil)
+        
+        // option 3 / WorkButUgly
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "mpaVC") as? MenuPlayerAssetViewController
+//        view.window?.rootViewController = vc
+//        view.window?.makeKeyAndVisible()
+        
+        // option 4 / PrettyGood
+        performSegue(withIdentifier: "mpaSegue", sender: nil)
+        
+    }
 }
 

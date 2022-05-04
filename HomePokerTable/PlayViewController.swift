@@ -55,6 +55,12 @@ class PlayViewController: UIViewController {
         self.addRadiusToView(uiView: self.betButton, radius: 20)
     }
     
+    // MARK: Component Styling Methods
+    func addRadiusToView(uiView: UIView?, radius: Int) {
+        guard let view = uiView else { return }
+        view.layer.cornerRadius = CGFloat(radius)
+    }
+    
     // TODO: A method to Activate and Deactivate betButton
     func switchBetButton() {
         
@@ -63,10 +69,5 @@ class PlayViewController: UIViewController {
     
     // MARK: IBActions
     
-    // MARK: Styling Component Methods
-    func addRadiusToView(uiView: UIView?, radius: Int) {
-        guard let view = uiView else { return }
-        view.layer.cornerRadius = CGFloat(radius)
-    }
     
 }
