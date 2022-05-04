@@ -12,8 +12,8 @@ class MenuPlayerAssetViewController: UIViewController {
     // MARK: - Properties
     
     // MARK: IBOutlets
-    @IBOutlet weak var minLabel: UILabel!
-    @IBOutlet weak var maxLabel: UILabel!
+    @IBOutlet weak var minButton: UIButton!
+    @IBOutlet weak var maxButton: UIButton!
     @IBOutlet weak var currentLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var cancelButton: UIButton!
@@ -43,6 +43,8 @@ class MenuPlayerAssetViewController: UIViewController {
     
     // MARK: Custom Methods
     func addStyleToComponents() {
+        self.addRadiusToView(uiView: minButton, radius: 20)
+        self.addRadiusToView(uiView: maxButton, radius: 20)
         self.addRadiusToView(uiView: cancelButton, radius: 20)
         self.addRadiusToView(uiView: setAssetButton, radius: 20)
     }

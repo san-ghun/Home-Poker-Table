@@ -30,6 +30,7 @@ class MenuViewController: UIViewController {
         
         self.addStyleToComponents()
         
+        // Add TapGestureRecognizer to playerView to show MenuPlayerAssetViewController
         let playerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpPlayerView(_:)))
         self.playerView.addGestureRecognizer(playerViewTapGesture)
     }

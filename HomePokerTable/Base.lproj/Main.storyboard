@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5j-0n-kXz">
-                                <rect key="frame" x="0.0" y="439" width="390" height="216"/>
+                                <rect key="frame" x="0.0" y="452" width="390" height="216"/>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.11372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSC-RT-Cp9">
@@ -232,42 +232,65 @@ for each player.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Axh-b2-hrh">
-                                <rect key="frame" x="91" y="183" width="208" height="67"/>
+                                <rect key="frame" x="60" y="183" width="270" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGT-lW-86u">
-                                        <rect key="frame" x="0.0" y="0.0" width="89" height="67"/>
-                                        <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.11372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <string key="text">Min.
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="515-Jx-Bq4">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
+                                        <color key="backgroundColor" red="0.10980392160000001" green="0.1176470588" blue="0.1137254902" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment>
+                                                    <string key="content">Min.
 5</string>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMi-jY-raI">
-                                        <rect key="frame" x="119" y="0.0" width="89" height="67"/>
-                                        <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.11372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <string key="text">Max.
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="24" name="HelveticaNeue-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCA-3c-Amt">
+                                        <rect key="frame" x="150" y="0.0" width="120" height="80"/>
+                                        <color key="backgroundColor" red="0.10980392160000001" green="0.1176470588" blue="0.1137254902" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment>
+                                                    <string key="content">Max.
 10000</string>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="28" name="HelveticaNeue-Bold"/>
+                                                        <font key="NSOriginalFont" size="28" name="HelveticaNeue-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="KDk-ev-GWE"/>
+                                    <constraint firstAttribute="height" constant="80" id="hiz-F1-Twi"/>
+                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tL8-Xy-iXu">
-                                <rect key="frame" x="149" y="310" width="92.333333333333314" height="28.666666666666686"/>
+                                <rect key="frame" x="149" y="323" width="92.333333333333314" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY8-b8-Y9l">
-                                <rect key="frame" x="154.33333333333334" y="370.66666666666669" width="81.666666666666657" height="38.333333333333314"/>
+                                <rect key="frame" x="154.33333333333334" y="383.66666666666669" width="81.666666666666657" height="38.333333333333314"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="g5W-bg-8PZ">
-                                <rect key="frame" x="50" y="695" width="290" height="44"/>
+                                <rect key="frame" x="50" y="708" width="290" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" role="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-hA-5iA">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
@@ -313,8 +336,8 @@ for each player.</string>
                     <connections>
                         <outlet property="cancelButton" destination="qxh-hA-5iA" id="CQe-dS-eEX"/>
                         <outlet property="currentLabel" destination="sY8-b8-Y9l" id="FyS-Gb-LRA"/>
-                        <outlet property="maxLabel" destination="tMi-jY-raI" id="Q4Q-ch-vhJ"/>
-                        <outlet property="minLabel" destination="BGT-lW-86u" id="Qv5-5j-D7X"/>
+                        <outlet property="maxButton" destination="gCA-3c-Amt" id="r8k-k7-6hN"/>
+                        <outlet property="minButton" destination="515-Jx-Bq4" id="ykg-NK-aAI"/>
                         <outlet property="pickerView" destination="K5j-0n-kXz" id="E8B-Dn-MPV"/>
                         <outlet property="setAssetButton" destination="dWK-wU-RSH" id="hSs-aw-Aq6"/>
                     </connections>
