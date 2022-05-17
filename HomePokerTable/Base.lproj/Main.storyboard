@@ -115,7 +115,7 @@
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="10000"/>
                                                                 <connections>
-                                                                    <segue destination="B7S-E2-FqA" kind="presentation" identifier="mpaSegue" id="3eh-SV-If8"/>
+                                                                    <segue destination="B7S-E2-FqA" kind="show" identifier="mpaSegue" id="3eh-SV-If8"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -138,6 +138,9 @@
                                         <color key="tintColor" red="0.19215686274509802" green="0.29411764705882354" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="x 2"/>
+                                        <connections>
+                                            <action selector="touchUpNumberButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6r6-T0-1Z7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -153,6 +156,9 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="touchUpResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W8M-bn-2jD"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKf-8Q-ioo">
                                         <rect key="frame" x="191" y="0.0" width="171" height="48"/>
@@ -161,7 +167,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
-                                            <segue destination="SyZ-aM-reE" kind="show" id="Xzq-ff-FC2"/>
+                                            <segue destination="SyZ-aM-reE" kind="show" identifier="startSegue" id="Xzq-ff-FC2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -216,44 +222,54 @@
             <objects>
                 <viewController storyboardIdentifier="mpaVC" id="B7S-E2-FqA" customClass="MenuPlayerAssetViewController" customModule="HomePokerTable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sGB-u7-fjW">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5j-0n-kXz">
-                                <rect key="frame" x="0.0" y="452" width="390" height="216"/>
+                            <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="K5j-0n-kXz">
+                                <rect key="frame" x="0.0" y="476" width="390" height="216"/>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.11372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSC-RT-Cp9">
-                                <rect key="frame" x="49.666666666666657" y="74" width="291" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSC-RT-Cp9">
+                                <rect key="frame" x="49.666666666666657" y="118" width="291" height="67"/>
                                 <string key="text">Set the amount of asset 
 for each player.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Axh-b2-hrh">
-                                <rect key="frame" x="60" y="183" width="270" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Axh-b2-hrh">
+                                <rect key="frame" x="60" y="223" width="270" height="110"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="515-Jx-Bq4">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="515-Jx-Bq4">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="110"/>
                                         <color key="backgroundColor" red="0.10980392160000001" green="0.1176470588" blue="0.1137254902" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment>
                                                     <string key="content">Min.
-5</string>
+</string>
                                                     <attributes>
                                                         <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <font key="NSFont" size="24" name="HelveticaNeue-Bold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
+                                                <fragment content="5">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="24" name="HelveticaNeue-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="touchUpMinButton:" destination="B7S-E2-FqA" eventType="touchUpInside" id="RP1-wA-44V"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCA-3c-Amt">
-                                        <rect key="frame" x="150" y="0.0" width="120" height="80"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCA-3c-Amt">
+                                        <rect key="frame" x="150" y="0.0" width="120" height="110"/>
                                         <color key="backgroundColor" red="0.10980392160000001" green="0.1176470588" blue="0.1137254902" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
@@ -262,53 +278,62 @@ for each player.</string>
                                                     <string key="content">Max.
 10000</string>
                                                     <attributes>
-                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <font key="NSFont" size="28" name="HelveticaNeue-Bold"/>
-                                                        <font key="NSOriginalFont" size="28" name="HelveticaNeue-Bold"/>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="24" name="HelveticaNeue-Bold"/>
+                                                        <font key="NSOriginalFont" size="24" name="HelveticaNeue-Bold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="touchUpMaxButton:" destination="B7S-E2-FqA" eventType="touchUpInside" id="CJY-Dr-FBA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="KDk-ev-GWE"/>
-                                    <constraint firstAttribute="height" constant="80" id="hiz-F1-Twi"/>
+                                    <constraint firstAttribute="height" constant="110" id="hiz-F1-Twi"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tL8-Xy-iXu">
-                                <rect key="frame" x="149" y="323" width="92.333333333333314" height="28.666666666666686"/>
+                                <rect key="frame" x="149" y="373" width="92.333333333333314" height="18.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY8-b8-Y9l">
-                                <rect key="frame" x="154.33333333333334" y="383.66666666666669" width="81.666666666666657" height="38.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY8-b8-Y9l">
+                                <rect key="frame" x="154.33333333333334" y="409.66666666666669" width="81.666666666666657" height="38.333333333333314"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="g5W-bg-8PZ">
-                                <rect key="frame" x="50" y="708" width="290" height="44"/>
+                                <rect key="frame" x="50" y="728" width="290" height="42"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" role="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-hA-5iA">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="42"/>
                                         <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.11372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" systemColor="systemRedColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="touchUpCancelButton:" destination="B7S-E2-FqA" eventType="touchUpInside" id="Pso-ty-ie1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="dWK-wU-RSH">
-                                        <rect key="frame" x="165" y="0.0" width="125" height="44"/>
+                                        <rect key="frame" x="165" y="0.0" width="125" height="42"/>
                                         <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.11372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="  Set Asset  ">
                                             <color key="titleColor" systemColor="systemBlueColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="touchUpSetAssetButton:" destination="B7S-E2-FqA" eventType="touchUpInside" id="QbM-f6-ApS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -317,28 +342,29 @@ for each player.</string>
                         <color key="backgroundColor" red="0.27450980392156865" green="0.47058823529411764" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sY8-b8-Y9l" firstAttribute="centerX" secondItem="sGB-u7-fjW" secondAttribute="centerX" id="4f0-2U-h80"/>
-                            <constraint firstItem="g5W-bg-8PZ" firstAttribute="top" secondItem="K5j-0n-kXz" secondAttribute="bottom" constant="40" id="88p-wI-qD8"/>
+                            <constraint firstItem="g5W-bg-8PZ" firstAttribute="top" secondItem="K5j-0n-kXz" secondAttribute="bottom" constant="36" id="88p-wI-qD8"/>
                             <constraint firstItem="K5j-0n-kXz" firstAttribute="leading" secondItem="hW5-wI-goU" secondAttribute="leading" id="F7V-ih-4z5"/>
                             <constraint firstItem="K5j-0n-kXz" firstAttribute="trailing" secondItem="hW5-wI-goU" secondAttribute="trailing" id="FEU-lR-9zz"/>
                             <constraint firstItem="tL8-Xy-iXu" firstAttribute="centerX" secondItem="sGB-u7-fjW" secondAttribute="centerX" id="Lau-Jg-BGj"/>
-                            <constraint firstItem="hW5-wI-goU" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="g5W-bg-8PZ" secondAttribute="bottom" constant="20" id="PsE-u8-aoZ"/>
-                            <constraint firstItem="K5j-0n-kXz" firstAttribute="top" secondItem="sY8-b8-Y9l" secondAttribute="bottom" constant="30" id="Xwm-IE-m2e"/>
+                            <constraint firstItem="hW5-wI-goU" firstAttribute="bottom" secondItem="g5W-bg-8PZ" secondAttribute="bottom" constant="40" id="PsE-u8-aoZ"/>
+                            <constraint firstItem="K5j-0n-kXz" firstAttribute="top" secondItem="sY8-b8-Y9l" secondAttribute="bottom" constant="28" id="Xwm-IE-m2e"/>
                             <constraint firstItem="YSC-RT-Cp9" firstAttribute="centerX" secondItem="sGB-u7-fjW" secondAttribute="centerX" id="Zuq-Id-YKt"/>
-                            <constraint firstItem="sY8-b8-Y9l" firstAttribute="top" secondItem="tL8-Xy-iXu" secondAttribute="bottom" constant="32" id="anz-LO-eiT"/>
+                            <constraint firstItem="sY8-b8-Y9l" firstAttribute="top" secondItem="tL8-Xy-iXu" secondAttribute="bottom" constant="18" id="anz-LO-eiT"/>
                             <constraint firstItem="g5W-bg-8PZ" firstAttribute="centerX" secondItem="sGB-u7-fjW" secondAttribute="centerX" id="d5W-hY-bDl"/>
                             <constraint firstItem="K5j-0n-kXz" firstAttribute="centerX" secondItem="sGB-u7-fjW" secondAttribute="centerX" id="gIq-Fz-nN4"/>
-                            <constraint firstItem="Axh-b2-hrh" firstAttribute="top" secondItem="YSC-RT-Cp9" secondAttribute="bottom" constant="42" id="hFQ-XE-ajA"/>
+                            <constraint firstItem="Axh-b2-hrh" firstAttribute="top" secondItem="YSC-RT-Cp9" secondAttribute="bottom" constant="38" id="hFQ-XE-ajA"/>
                             <constraint firstItem="Axh-b2-hrh" firstAttribute="centerX" secondItem="sGB-u7-fjW" secondAttribute="centerX" id="n2j-xu-Z7p"/>
                             <constraint firstItem="YSC-RT-Cp9" firstAttribute="top" secondItem="hW5-wI-goU" secondAttribute="top" constant="30" id="o8R-Rf-Nyn"/>
-                            <constraint firstItem="tL8-Xy-iXu" firstAttribute="top" secondItem="Axh-b2-hrh" secondAttribute="bottom" constant="60" id="zlz-gD-W9l"/>
+                            <constraint firstItem="tL8-Xy-iXu" firstAttribute="top" secondItem="Axh-b2-hrh" secondAttribute="bottom" constant="40" id="zlz-gD-W9l"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="l5Y-dp-eNX"/>
                     <connections>
                         <outlet property="cancelButton" destination="qxh-hA-5iA" id="CQe-dS-eEX"/>
                         <outlet property="currentLabel" destination="sY8-b8-Y9l" id="FyS-Gb-LRA"/>
                         <outlet property="maxButton" destination="gCA-3c-Amt" id="r8k-k7-6hN"/>
                         <outlet property="minButton" destination="515-Jx-Bq4" id="ykg-NK-aAI"/>
-                        <outlet property="pickerView" destination="K5j-0n-kXz" id="E8B-Dn-MPV"/>
+                        <outlet property="picker" destination="K5j-0n-kXz" id="E8B-Dn-MPV"/>
                         <outlet property="setAssetButton" destination="dWK-wU-RSH" id="hSs-aw-Aq6"/>
                     </connections>
                 </viewController>
