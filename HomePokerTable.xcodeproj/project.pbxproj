@@ -64,8 +64,8 @@
 			children = (
 				BDEDE92A280DCC0300439A5F /* AppDelegate.swift */,
 				BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */,
-				BDEDE92E280DCC0300439A5F /* MenuViewController.swift */,
 				BDEDE930280DCC0300439A5F /* Main.storyboard */,
+				BDEDE92E280DCC0300439A5F /* MenuViewController.swift */,
 				BD8223B4281C254100FDEB39 /* MenuPlayerAssetViewController.swift */,
 				BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */,
 				BDEDE93E280DE40500439A5F /* PlayViewController.swift */,

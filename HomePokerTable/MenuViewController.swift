@@ -13,6 +13,22 @@ import UIKit
 class MenuViewController: UIViewController {
 
     // MARK: - Properties
+    let segueIdentifierToMenuPlayerAssetViewController: String = "mpaSegue"
+    let segueIdentifierToPlayerViewController: String = "startSegue"
+    
+    let playerNumbRange: [Int] = Array(2...8)
+    var playerNumbRangeIndex: Int = 0
+    var playerNumber: Int? {
+        get {
+            return playerNumbRange[playerNumbRangeIndex]
+        }
+    }
+    var playerNumbForm: String? {
+        get {
+            return "x " + "\(playerNumber ?? 2)"
+        }
+    }
+    var playerAsset: Int = 1000
     
     // MARK: IBOutlets
     @IBOutlet weak var howToView: UIView!
@@ -28,11 +44,19 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.numberButton.setTitle(self.playerNumbForm, for: .normal)
+        self.assetButton.setTitle("\(self.playerAsset)", for: .normal)
+
+        
         self.addStyleToComponents()
         
         // Add TapGestureRecognizer to playerView to show MenuPlayerAssetViewController
         let playerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpPlayerView(_:)))
         self.playerView.addGestureRecognizer(playerViewTapGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.assetButton.setTitle("\(self.playerAsset)", for: .normal)
     }
 
     
@@ -42,6 +66,16 @@ class MenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == segueIdentifierToMenuPlayerAssetViewController) {
+            guard let vc = segue.destination as? MenuPlayerAssetViewController else { return }
+            vc.delegate = self
+            vc.playerAsset = self.playerAsset
+        }
+        else if (segue.identifier == segueIdentifierToPlayerViewController) {
+            guard let vc = segue.destination as? PlayViewController else { return }
+            vc.numberOfPlayers = self.playerNumber ?? 2
+        }
     }
 
 
@@ -123,5 +157,31 @@ class MenuViewController: UIViewController {
         performSegue(withIdentifier: "mpaSegue", sender: nil)
         
     }
+    
+    @IBAction func touchUpNumberButton(_ sender: Any) {
+        if self.playerNumbRangeIndex < 6 {
+            self.playerNumbRangeIndex += 1
+        }
+        else {
+            self.playerNumbRangeIndex = 0
+        }
+        self.numberButton.setTitle(self.playerNumbForm, for: .normal)
+    }
+    
+    @IBAction func touchUpResetButton(_ sender: Any) {
+        self.playerNumbRangeIndex = 0
+        self.playerAsset = 1000
+        self.numberButton.setTitle(self.playerNumbForm, for: .normal)
+        self.assetButton.setTitle("\(self.playerAsset)", for: .normal)
+    }
+    
 }
 
+
+extension MenuViewController: MenuPlayerAssetViewControllerDelegate {
+    
+    func callback(data: Int) {
+        self.playerAsset = data
+    }
+    
+}
