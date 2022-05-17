@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD8223B5281C254100FDEB39 /* MenuPlayerAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8223B4281C254100FDEB39 /* MenuPlayerAssetViewController.swift */; };
 		BDC7B1D2280F3D6A00551BE3 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */; };
 		BDEDE92B280DCC0300439A5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEDE92A280DCC0300439A5F /* AppDelegate.swift */; };
 		BDEDE92D280DCC0300439A5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD8223B4281C254100FDEB39 /* MenuPlayerAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPlayerAssetViewController.swift; sourceTree = "<group>"; };
 		BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDEDE927280DCC0300439A5F /* HomePokerTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomePokerTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEDE92A280DCC0300439A5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,8 +64,9 @@
 			children = (
 				BDEDE92A280DCC0300439A5F /* AppDelegate.swift */,
 				BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */,
-				BDEDE92E280DCC0300439A5F /* MenuViewController.swift */,
 				BDEDE930280DCC0300439A5F /* Main.storyboard */,
+				BDEDE92E280DCC0300439A5F /* MenuViewController.swift */,
+				BD8223B4281C254100FDEB39 /* MenuPlayerAssetViewController.swift */,
 				BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */,
 				BDEDE93E280DE40500439A5F /* PlayViewController.swift */,
 				BDEDE933280DCC0800439A5F /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				BDEDE93F280DE40600439A5F /* PlayViewController.swift in Sources */,
 				BDEDE92F280DCC0300439A5F /* MenuViewController.swift in Sources */,
 				BDEDE92B280DCC0300439A5F /* AppDelegate.swift in Sources */,
+				BD8223B5281C254100FDEB39 /* MenuPlayerAssetViewController.swift in Sources */,
 				BDEDE92D280DCC0300439A5F /* SceneDelegate.swift in Sources */,
 				BDC7B1D2280F3D6A00551BE3 /* PlayerCollectionViewCell.swift in Sources */,
 			);
@@ -313,7 +317,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -342,7 +346,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
