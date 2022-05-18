@@ -442,7 +442,7 @@ for each player.</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-kk-AC0">
                                                     <rect key="frame" x="0.0" y="0.0" width="174" height="98"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-FI-f3N">
+                                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-FI-f3N">
                                                             <rect key="frame" x="0.0" y="0.0" width="174" height="98"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9T-wq-fRm">
@@ -471,7 +471,7 @@ for each player.</string>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.11372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Zhg-FI-f3N" secondAttribute="trailing" id="2Nx-Qz-Ggz"/>
                                                         <constraint firstAttribute="width" constant="174" id="D3g-eA-uFS"/>
@@ -482,7 +482,7 @@ for each player.</string>
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.10980392156862745" green="0.11764705882352941" blue="0.11372549019607843" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="ST5-kk-AC0" secondAttribute="bottom" id="Twk-zR-2rK"/>
                                                 <constraint firstAttribute="trailing" secondItem="ST5-kk-AC0" secondAttribute="trailing" id="V2g-XV-40v"/>

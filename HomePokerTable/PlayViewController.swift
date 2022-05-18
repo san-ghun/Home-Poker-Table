@@ -15,6 +15,15 @@ class PlayViewController: UIViewController {
 
     // MARK: - Properties
     let cellIdentifier: String = "playerCell"
+    var numberOfPlayers: Int = 2
+    var assetOfPlayers: Int = 1000
+    var potAmount: Int = 0
+    
+    let model = PlayerModel()
+    var playersArray: [Player] = []
+    
+    // Indicate which player have selected
+    var selectedPlayerIndex: IndexPath?
     
     // MARK: IBOutlets
     @IBOutlet weak var potAmountLabel: UILabel!
@@ -32,6 +41,17 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Initiate pot value
+        self.potAmountLabel.text = String(potAmount)
+        
+        // Set the players array
+        playersArray = model.getPlayers(nop: numberOfPlayers, asset: assetOfPlayers)
+        
+        // Set the view controller as the dataSource and delegate of the collection view
+        playerCollectionView.dataSource = self
+        playerCollectionView.delegate = self
+        
         self.addStyleToComponents()
     }
     
@@ -69,5 +89,83 @@ class PlayViewController: UIViewController {
     
     // MARK: IBActions
     
+    
+}
+
+
+// MARK: - Extensions
+
+extension PlayViewController: UICollectionViewDataSource {
+    
+    // MARK: Collection View DataSource Methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return numberOfPlayers
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // Get a cell
+        guard let cell = playerCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PlayerCollectionViewCell else {
+            
+            print("Passed 'else' in collectionView cellForItemAt indexPath.")
+            let cell = PlayerCollectionViewCell()
+            return cell
+        }
+        
+        // return Cell
+        return cell
+    }
+    
+}
+
+extension PlayViewController: UICollectionViewDelegate {
+    
+    // MARK: Collection View Delegate Methods
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        // Configure the state of the cell based on the properties of the Player that it represents
+        let playerCell = cell as? PlayerCollectionViewCell
+        
+        // Get the player from the player array
+        let player = playersArray[indexPath.row]
+        
+        // Configure cell
+        playerCell?.configureCell(player: player)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        /*
+         * Don't forget to DISABLE the "User Interaction Enable" of wrapping View in playerCell at storyboard, by unchecking the selection.
+         * So the collectionView didSelectItemAt method do not get bothered by the "User Interaction Enable" or GestureRecognizer features.
+         * reference: [link](https:localcoder.org/why-uicollectionview-didselect-method-does-not-work)
+         */
+         
+        // Get a reference to the cell that was tapped
+        let cell = playerCollectionView.cellForItem(at: indexPath) as? PlayerCollectionViewCell
+
+        // Check the status of the player to determine the selection
+        if cell?.player?.isSelected == false && cell?.player?.isActive == true {
+
+            // Select on the player
+            cell?.selectOn()
+
+            // Check if this is first player that was selected
+            if selectedPlayerIndex != nil && selectedPlayerIndex != indexPath {
+
+                // Get the collection view Cell that represent preSelected player
+                guard let selectionIndex = selectedPlayerIndex else { return }
+                let preSelectedPlayerCell = playerCollectionView.cellForItem(at: selectionIndex) as? PlayerCollectionViewCell
+
+                preSelectedPlayerCell?.selectOff()
+            }
+
+            selectedPlayerIndex = indexPath
+        }
+        
+    }
     
 }

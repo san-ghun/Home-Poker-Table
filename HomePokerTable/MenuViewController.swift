@@ -75,6 +75,7 @@ class MenuViewController: UIViewController {
         else if (segue.identifier == segueIdentifierToPlayerViewController) {
             guard let vc = segue.destination as? PlayViewController else { return }
             vc.numberOfPlayers = self.playerNumber ?? 2
+            vc.assetOfPlayers = self.playerAsset
         }
     }
 
