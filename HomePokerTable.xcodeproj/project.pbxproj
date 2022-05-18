@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BD8223B5281C254100FDEB39 /* MenuPlayerAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8223B4281C254100FDEB39 /* MenuPlayerAssetViewController.swift */; };
+		BD89AADD2835365C00E3678C /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD89AADC2835365C00E3678C /* PlayerModel.swift */; };
 		BDC7B1D2280F3D6A00551BE3 /* PlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */; };
+		BDDB837628352F1100565419 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDB837528352F1100565419 /* Player.swift */; };
 		BDEDE92B280DCC0300439A5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEDE92A280DCC0300439A5F /* AppDelegate.swift */; };
 		BDEDE92D280DCC0300439A5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */; };
 		BDEDE92F280DCC0300439A5F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEDE92E280DCC0300439A5F /* MenuViewController.swift */; };
@@ -20,7 +22,9 @@
 
 /* Begin PBXFileReference section */
 		BD8223B4281C254100FDEB39 /* MenuPlayerAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPlayerAssetViewController.swift; sourceTree = "<group>"; };
+		BD89AADC2835365C00E3678C /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		BDDB837528352F1100565419 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		BDEDE927280DCC0300439A5F /* HomePokerTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomePokerTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDEDE92A280DCC0300439A5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				BDEDE933280DCC0800439A5F /* Assets.xcassets */,
 				BDEDE935280DCC0800439A5F /* LaunchScreen.storyboard */,
 				BDEDE938280DCC0800439A5F /* Info.plist */,
+				BDDB837528352F1100565419 /* Player.swift */,
+				BD89AADC2835365C00E3678C /* PlayerModel.swift */,
 			);
 			path = HomePokerTable;
 			sourceTree = "<group>";
@@ -149,8 +155,10 @@
 			files = (
 				BDEDE93F280DE40600439A5F /* PlayViewController.swift in Sources */,
 				BDEDE92F280DCC0300439A5F /* MenuViewController.swift in Sources */,
+				BD89AADD2835365C00E3678C /* PlayerModel.swift in Sources */,
 				BDEDE92B280DCC0300439A5F /* AppDelegate.swift in Sources */,
 				BD8223B5281C254100FDEB39 /* MenuPlayerAssetViewController.swift in Sources */,
+				BDDB837628352F1100565419 /* Player.swift in Sources */,
 				BDEDE92D280DCC0300439A5F /* SceneDelegate.swift in Sources */,
 				BDC7B1D2280F3D6A00551BE3 /* PlayerCollectionViewCell.swift in Sources */,
 			);
