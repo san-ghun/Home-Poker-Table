@@ -48,10 +48,10 @@ class PlayViewController: UIViewController {
         // Set the players array
         playersArray = model.getPlayers(nop: numberOfPlayers, asset: assetOfPlayers)
         
-        // Set the view controller as the dataSource and delegate of the collection view
-        playerCollectionView.dataSource = self
-        playerCollectionView.delegate = self
+        // Set the playerCollectionView
+        self.setUpCollectionView()
         
+        // Add style to components
         self.addStyleToComponents()
     }
     
@@ -69,16 +69,46 @@ class PlayViewController: UIViewController {
     // MARK: - Methods
     
     // MARK: Custom Methods
+    
+    // MARK: Style UI components
     func addStyleToComponents() {
         self.addRadiusToView(uiView: self.awardButton, radius: 20)
         self.addRadiusToView(uiView: self.clearButton, radius: 20)
         self.addRadiusToView(uiView: self.betButton, radius: 20)
     }
     
-    // MARK: Component Styling Methods
     func addRadiusToView(uiView: UIView?, radius: Int) {
         guard let view = uiView else { return }
         view.layer.cornerRadius = CGFloat(radius)
+    }
+    
+    // MARK: Set up CollectionView
+    func setUpCollectionView() {
+        
+        // Replace to CollectionView Delegate method in extention, `func collectionView(..., willDisplay ...)`
+        //playerCollectionView.register(PlayerCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        
+        // Set the view controller as the dataSource and delegate of the collection view
+        playerCollectionView.dataSource = self
+        playerCollectionView.delegate = self
+        
+        let layout = generateLayout()
+        
+        playerCollectionView.setCollectionViewLayout(layout, animated: true)
+    }
+    
+    func generateLayout() -> UICollectionViewLayout {
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1/4))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
     
     // TODO: A method to Activate and Deactivate betButton
@@ -108,10 +138,7 @@ extension PlayViewController: UICollectionViewDataSource {
         
         // Get a cell
         guard let cell = playerCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PlayerCollectionViewCell else {
-            
-            print("Passed 'else' in collectionView cellForItemAt indexPath.")
-            let cell = PlayerCollectionViewCell()
-            return cell
+            fatalError("Could not create new cell")
         }
         
         // return Cell
@@ -157,7 +184,7 @@ extension PlayViewController: UICollectionViewDelegate {
             if selectedPlayerIndex != nil && selectedPlayerIndex != indexPath {
 
                 // Get the collection view Cell that represent preSelected player
-                guard let selectionIndex = selectedPlayerIndex else { return }
+                guard let selectionIndex = selectedPlayerIndex else { fatalError("Could not get selected player indexPath") }
                 let preSelectedPlayerCell = playerCollectionView.cellForItem(at: selectionIndex) as? PlayerCollectionViewCell
 
                 preSelectedPlayerCell?.selectOff()
