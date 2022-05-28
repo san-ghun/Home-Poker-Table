@@ -48,7 +48,7 @@ class MenuViewController: UIViewController {
         self.assetButton.setTitle("\(self.playerAsset)", for: .normal)
 
         
-        self.addStyleToComponents()
+        self.applyStyleToComponents()
         
         // Add TapGestureRecognizer to playerView to show MenuPlayerAssetViewController
         let playerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpPlayerView(_:)))
@@ -83,7 +83,9 @@ class MenuViewController: UIViewController {
     // MARK: - Methods
     
     // MARK: Custom Methods
-    func addStyleToComponents() {
+    
+    // MARK: Methods to style UI components
+    func applyStyleToComponents() {
         
         // TODO: Which would be the better code to apply radius on views?
         
@@ -117,7 +119,6 @@ class MenuViewController: UIViewController {
         self.addStyleToPlayerLabel()
     }
     
-    // MARK: Component Styling Methods
     func addRadiusToView(uiView: UIView?, radius: Int) {
         guard let view = uiView else { return }
         view.layer.cornerRadius = CGFloat(radius)
