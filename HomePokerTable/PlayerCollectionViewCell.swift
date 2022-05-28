@@ -16,10 +16,12 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var playerCellView: UIView!
     @IBOutlet weak var playerButton: UIButton!
     @IBOutlet weak var betLabel: UILabel!
-    @IBOutlet weak var assetButton: UIButton!
+    @IBOutlet weak var assetLabel: UILabel!
     
     
     // MARK: - Methods
+    
+    // MARK: ConfigureCell
     func configureCell(player: Player) {
         
         // Keep track of the player this cell represents
@@ -27,43 +29,21 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         
         // Set the title and label to the view the represents the player
         playerButton.setTitle(player.name, for: .normal)
-        assetButton.setTitle(String(player.asset), for: .normal)
+        betLabel.text = String(player.bet)
+        assetLabel.text = String(player.asset)
         
-        // Give Style to cell
+        // Apply Style to cell
+        self.applyStyleToComponents()
+        
+    }
+    
+    // MARK: Methods to style UI components
+    func applyStyleToComponents() {
         self.addRadiusToView(uiView: playerCellView, radius: 20)
         self.addBorderToPlayerView()
         self.addStyleToPlayerButton()
-        
     }
-    // TODO: Give radius and border to CollectionViewCell
-    /*
-     as Reference
-     
-     func addRadiusToView(uiView: UIView?, radius: Int) {
-         guard let view = uiView else { return }
-         view.layer.cornerRadius = CGFloat(radius)
-     }
-     
-     func addBorderToPlayerView() {
-         guard let view = self.playerView else { return }
-         view.layer.borderWidth = 3
-         view.layer.borderColor = UIColor(red: 0.192, green: 0.294, blue: 0.169, alpha: 1).cgColor
-     }
-     */
     
-    // TODO: Give highlight on [playerButton]
-    /*
-     as Reference
-     
-    func addStyleToPlayerLabel() {
-        guard let button = self.playerButton else { return }
-        button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
-        button.layer.cornerRadius = 20
-        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-    }
-    */
-    
-    // MARK: Component Styling Methods
     func addRadiusToView(uiView: UIView?, radius: Int) {
         guard let view = uiView else { return }
         view.layer.cornerRadius = CGFloat(radius)
@@ -82,6 +62,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
+    // MARK: Selection on/off
     func selectOn() {
         guard let button = self.playerButton else { return }
         button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
@@ -95,7 +76,14 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     }
     
     // TODO: A method to Activate and Deactivate playerButton
-    func switchPlayerButton() {
-        
+    func switchPlayerButtonActivation() {
+        guard let player = self.player else { return }
+        guard let button = self.playerButton else { return }
+        if player.isActive {
+            button.alpha = 1
+        }
+        else {
+            button.alpha = 0.5
+        }
     }
 }

@@ -443,6 +443,9 @@ for each player.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Award"/>
+                                <connections>
+                                    <action selector="touchUpAwardButton:" destination="SyZ-aM-reE" eventType="touchUpInside" id="xtm-Vw-Ct4"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XbY-cq-0e7">
                                 <rect key="frame" x="14" y="212" width="362" height="415"/>
@@ -482,12 +485,12 @@ for each player.</string>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnY-Ii-JOJ">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tm-dc-Tm5">
                                                                             <rect key="frame" x="69.333333333333329" y="0.0" width="68.999999999999986" height="36"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                            <state key="normal" title="10000"/>
-                                                                        </button>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -512,7 +515,7 @@ for each player.</string>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="assetButton" destination="bnY-Ii-JOJ" id="9tY-Ad-Dbr"/>
+                                            <outlet property="assetLabel" destination="6Tm-dc-Tm5" id="BMb-pv-lIF"/>
                                             <outlet property="betLabel" destination="GQe-d3-bFw" id="ya1-rN-L7a"/>
                                             <outlet property="playerButton" destination="K9T-wq-fRm" id="sFi-NN-jzm"/>
                                             <outlet property="playerCellView" destination="ST5-kk-AC0" id="r1O-eN-Jdv"/>
@@ -529,6 +532,9 @@ for each player.</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Clear"/>
+                                        <connections>
+                                            <action selector="touchUpClearButton:" destination="SyZ-aM-reE" eventType="touchUpInside" id="cA3-Zc-luP"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-fc-HLS">
                                         <rect key="frame" x="191" y="0.0" width="171" height="48"/>
@@ -536,6 +542,9 @@ for each player.</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Bet"/>
+                                        <connections>
+                                            <action selector="touchUpBetButton:" destination="SyZ-aM-reE" eventType="touchUpInside" id="28e-mL-51S"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -550,24 +559,36 @@ for each player.</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="5" backgroundImage="chip005"/>
+                                        <connections>
+                                            <action selector="touchUpChip005:" destination="SyZ-aM-reE" eventType="touchUpInside" id="oz8-ac-jWI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdj-r6-PLr">
                                         <rect key="frame" x="96" y="0.0" width="86" height="86"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="10" backgroundImage="chip010"/>
+                                        <connections>
+                                            <action selector="touchUpChip010:" destination="SyZ-aM-reE" eventType="touchUpInside" id="qpm-ZD-eBO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNh-iF-7qk">
                                         <rect key="frame" x="192" y="0.0" width="86" height="86"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="50" backgroundImage="chip050"/>
+                                        <connections>
+                                            <action selector="touchUpChip050:" destination="SyZ-aM-reE" eventType="touchUpInside" id="NGU-Ni-Zvu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glq-9Z-BJV">
                                         <rect key="frame" x="288" y="0.0" width="86" height="86"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="100" backgroundImage="chip100"/>
+                                        <connections>
+                                            <action selector="touchUpChip100:" destination="SyZ-aM-reE" eventType="touchUpInside" id="8Ay-O6-wlw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -606,6 +627,7 @@ for each player.</string>
                         <outlet property="chip010Button" destination="zdj-r6-PLr" id="p9i-sJ-UYT"/>
                         <outlet property="chip050Button" destination="tNh-iF-7qk" id="AI5-cH-ooD"/>
                         <outlet property="chip100Button" destination="glq-9Z-BJV" id="sts-Zd-pAB"/>
+                        <outlet property="chipHStackView" destination="ecT-sJ-X6C" id="5YP-I6-h7o"/>
                         <outlet property="clearButton" destination="RMp-TR-Snk" id="JZz-pg-Gph"/>
                         <outlet property="playerCollectionView" destination="XbY-cq-0e7" id="XNy-RP-Yzc"/>
                         <outlet property="potAmountLabel" destination="h9J-jE-uaI" id="NVJ-GE-mui"/>

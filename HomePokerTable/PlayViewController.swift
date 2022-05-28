@@ -8,7 +8,6 @@
 import UIKit
 
 /*
- TODO: Give highlight on player button
  TODO: Complete CollectionView and custom collectionViewCell
  */
 class PlayViewController: UIViewController {
@@ -24,6 +23,8 @@ class PlayViewController: UIViewController {
     
     // Indicate which player have selected
     var selectedPlayerIndex: IndexPath?
+    var selectedPlayerCell: PlayerCollectionViewCell?
+    var selectedPlayer: Player?
     
     // MARK: IBOutlets
     @IBOutlet weak var potAmountLabel: UILabel!
@@ -31,10 +32,12 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var playerCollectionView: UICollectionView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var betButton: UIButton!
+    @IBOutlet weak var chipHStackView: UIStackView!
     @IBOutlet weak var chip005Button: UIButton!
     @IBOutlet weak var chip010Button: UIButton!
     @IBOutlet weak var chip050Button: UIButton!
     @IBOutlet weak var chip100Button: UIButton!
+    
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -52,7 +55,11 @@ class PlayViewController: UIViewController {
         self.setUpCollectionView()
         
         // Add style to components
-        self.addStyleToComponents()
+        self.applyStyleToComponents()
+        
+        // TODO: Add LongPressGestureRecognizer to chipHStackView to all-in
+        let chipHStackViewLongPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressChipHStackView(_:)))
+        self.chipHStackView.addGestureRecognizer(chipHStackViewLongPressGesture)
     }
     
 
@@ -66,12 +73,13 @@ class PlayViewController: UIViewController {
     }
     */
 
+    
     // MARK: - Methods
     
     // MARK: Custom Methods
     
-    // MARK: Style UI components
-    func addStyleToComponents() {
+    // MARK: Methods to style UI components
+    func applyStyleToComponents() {
         self.addRadiusToView(uiView: self.awardButton, radius: 20)
         self.addRadiusToView(uiView: self.clearButton, radius: 20)
         self.addRadiusToView(uiView: self.betButton, radius: 20)
@@ -112,13 +120,57 @@ class PlayViewController: UIViewController {
     }
     
     // TODO: A method to Activate and Deactivate betButton
-    func switchBetButton() {
-        
+    func switchBetButton(player: Player) {
+        if player.isActive {
+            self.betButton.isEnabled = true
+        }
+        else {
+            self.betButton.isEnabled = false
+        }
     }
     
     
     // MARK: IBActions
-    
+    // TODO: touchUpAwardButton()
+    @IBAction func touchUpAwardButton(_ sender: Any) {
+        // temporary test to see the state change of player
+        selectedPlayer?.asset += potAmount
+        potAmount = 0
+        playerCollectionView.reloadData()
+    }
+    // TODO: touchUpClearButton()
+    @IBAction func touchUpClearButton(_ sender: Any) {
+        
+    }
+    // TODO: touchUpBetButton()
+    @IBAction func touchUpBetButton(_ sender: Any) {
+        // temporary test to see the state change of player
+        potAmount += selectedPlayer?.asset ?? 1000
+        selectedPlayer?.asset = 0
+        
+        potAmountLabel.text = String(potAmount)
+        playerCollectionView.reloadData()
+    }
+    // TODO: touchUpChip005()
+    @IBAction func touchUpChip005(_ sender: Any) {
+        
+    }
+    // TODO: touchUpChip010()
+    @IBAction func touchUpChip010(_ sender: Any) {
+        
+    }
+    // TODO: touchUpChip050()
+    @IBAction func touchUpChip050(_ sender: Any) {
+        
+    }
+    // TODO: touchUpChip100()
+    @IBAction func touchUpChip100(_ sender: Any) {
+        
+    }
+    // TODO: longPressChipHStackView() - all-in
+    @IBAction func longPressChipHStackView(_ sender: Any) {
+        
+    }
     
 }
 
@@ -137,6 +189,7 @@ extension PlayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // Get a cell
+        // TODO: ReusableCell make cell selection highlight confusion
         guard let cell = playerCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PlayerCollectionViewCell else {
             fatalError("Could not create new cell")
         }
@@ -172,26 +225,38 @@ extension PlayViewController: UICollectionViewDelegate {
          */
          
         // Get a reference to the cell that was tapped
-        let cell = playerCollectionView.cellForItem(at: indexPath) as? PlayerCollectionViewCell
+        guard let cell = playerCollectionView.cellForItem(at: indexPath) as? PlayerCollectionViewCell else { fatalError("Could not get cell item") }
+        
+        // Get a reference to the player that cell have
+        guard let player = cell.player else { fatalError("Could not get player from cell") }
 
         // Check the status of the player to determine the selection
-        if cell?.player?.isSelected == false && cell?.player?.isActive == true {
+        if player.isSelected == false {
 
             // Select on the player
-            cell?.selectOn()
+            cell.selectOn()
 
             // Check if this is first player that was selected
+            // if not, turn off the selection of previously selected cell
             if selectedPlayerIndex != nil && selectedPlayerIndex != indexPath {
 
                 // Get the collection view Cell that represent preSelected player
                 guard let selectionIndex = selectedPlayerIndex else { fatalError("Could not get selected player indexPath") }
                 let preSelectedPlayerCell = playerCollectionView.cellForItem(at: selectionIndex) as? PlayerCollectionViewCell
 
+                // Turn off the selection of preSelected player
                 preSelectedPlayerCell?.selectOff()
             }
 
+            // Set new selected player and player index
+            selectedPlayer = player
+            selectedPlayerCell = cell
             selectedPlayerIndex = indexPath
+            
         }
+        
+        // Set the Bet button activation
+        switchBetButton(player: player)
         
     }
     
