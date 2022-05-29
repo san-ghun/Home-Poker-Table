@@ -35,15 +35,11 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         // Apply Style to cell
         self.applyStyleToComponents()
         
-        // Reset the state of the cell by checking the selected status of the player and then show the selection On or Off accordingly
-        // implemented because system will reuse the cells in the collection view
-        // For more, check `collectionView(willDisplay)` in CollectionViewDataSource and `collectionView(willDisplay)` in CollectionViewDelegate from the `PlayerViewController.swift` file
-        if player.isSelected {
-            selectOn()
-        }
-        else {
-            selectOff()
-        }
+        // Configure highlighting of player selection in CollectionView
+        self.playerSelectionControl()
+        
+        // Switch on/off alpha of PlayerButton depend on Player Asset
+        self.switchPlayerButtonActivation()
     }
     
     // MARK: Methods to style UI components
@@ -71,7 +67,22 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
-    // MARK: Selection on/off
+    // MARK: Methods to control Selection on/off of cell
+    func playerSelectionControl() {
+        
+        // Reset the state of the cell by checking the selected status of the player and then show the selection On or Off accordingly
+        // implemented because system will reuse the cells in the collection view
+        // For more, check `collectionView(willDisplay)` in CollectionViewDataSource and `collectionView(willDisplay)` in CollectionViewDelegate from the `PlayerViewController.swift` file
+        
+        guard let player = player else { return }
+        if player.isSelected {
+            selectOn()
+        }
+        else {
+            selectOff()
+        }
+    }
+    
     func selectOn() {
         guard let button = self.playerButton else { return }
         button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
@@ -84,7 +95,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         player?.isSelected = false
     }
     
-    // TODO: A method to Activate and Deactivate playerButton
+    // MARK: A method to Activate and Deactivate playerButton
     func switchPlayerButtonActivation() {
         guard let player = self.player else { return }
         guard let button = self.playerButton else { return }
