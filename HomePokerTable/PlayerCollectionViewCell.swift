@@ -35,6 +35,15 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         // Apply Style to cell
         self.applyStyleToComponents()
         
+        // Reset the state of the cell by checking the selected status of the player and then show the selection On or Off accordingly
+        // implemented because system will reuse the cells in the collection view
+        // For more, check `collectionView(willDisplay)` in CollectionViewDataSource and `collectionView(willDisplay)` in CollectionViewDelegate from the `PlayerViewController.swift` file
+        if player.isSelected {
+            selectOn()
+        }
+        else {
+            selectOff()
+        }
     }
     
     // MARK: Methods to style UI components

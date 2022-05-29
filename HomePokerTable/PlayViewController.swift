@@ -93,7 +93,7 @@ class PlayViewController: UIViewController {
     // MARK: Set up CollectionView
     func setUpCollectionView() {
         
-        // Replace to CollectionView Delegate method in extention, `func collectionView(..., willDisplay ...)`
+        // Replace the following line of code to the CollectionView Delegate method in extention, `func collectionView(..., willDisplay ...)`
         //playerCollectionView.register(PlayerCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
         // Set the view controller as the dataSource and delegate of the collection view
@@ -189,7 +189,6 @@ extension PlayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // Get a cell
-        // TODO: ReusableCell make cell selection highlight confusion
         guard let cell = playerCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? PlayerCollectionViewCell else {
             fatalError("Could not create new cell")
         }
