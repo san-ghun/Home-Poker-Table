@@ -77,6 +77,39 @@ class PlayViewController: UIViewController {
     // MARK: - Methods
     
     // MARK: Custom Methods
+    /// A method to Activate and Deactivate betButton
+    func switchBetButton(player: Player) {
+        if player.isActive {
+            self.betButton.alpha = 1
+            self.betButton.isEnabled = true
+        }
+        else {
+            self.betButton.alpha = 0.5
+            self.betButton.isEnabled = false
+        }
+    }
+    
+    /// A method to initiate bets of players to zero, after the win
+    func initiateBets() {
+        guard !playersArray.isEmpty else { return }
+        let tempArray: [Player] = playersArray.map({ (player: Player) -> Player in
+            player.bet = 0
+            return player
+        })
+        self.playersArray = tempArray
+    }
+    
+    /// A method that check the asset of player and automatically set the betting value to the proper value
+    func validateAsset(player: Player, chip: Int) {
+        
+        // validate player's asset is affordable to bet
+        if player.bet + chip <= player.asset {
+            player.bet += chip
+        }
+        else {
+            player.bet = player.asset
+        }
+    }
     
     // MARK: Methods to style UI components
     func applyStyleToComponents() {
@@ -90,7 +123,7 @@ class PlayViewController: UIViewController {
         view.layer.cornerRadius = CGFloat(radius)
     }
     
-    // MARK: Set up CollectionView
+    // MARK: Methods to set up CollectionView
     func setUpCollectionView() {
         
         // Replace the following line of code to the CollectionView Delegate method in extention, `func collectionView(..., willDisplay ...)`
@@ -119,57 +152,101 @@ class PlayViewController: UIViewController {
         return layout
     }
     
-    // TODO: A method to Activate and Deactivate betButton
-    func switchBetButton(player: Player) {
-        if player.isActive {
-            self.betButton.isEnabled = true
-        }
-        else {
-            self.betButton.isEnabled = false
-        }
-    }
-    
     
     // MARK: IBActions
     // TODO: touchUpAwardButton()
     @IBAction func touchUpAwardButton(_ sender: Any) {
-        // temporary test to see the state change of player
-        selectedPlayer?.asset += potAmount
+        
+        guard let player = selectedPlayer else { return }
+        player.asset += potAmount
+        
         potAmount = 0
+        potAmountLabel.text = String(potAmount)
+        
+        initiateBets()
+        
         playerCollectionView.reloadData()
     }
     // TODO: touchUpClearButton()
     @IBAction func touchUpClearButton(_ sender: Any) {
+        guard let player = selectedPlayer else { return }
         
+        potAmountLabel.text = String(potAmount)
+        
+        player.bet = 0
+        
+        playerCollectionView.reloadData()
     }
     // TODO: touchUpBetButton()
     @IBAction func touchUpBetButton(_ sender: Any) {
-        // temporary test to see the state change of player
-        potAmount += selectedPlayer?.asset ?? 1000
-        selectedPlayer?.asset = 0
+        
+        guard let player = selectedPlayer else { return }
+        
+        let betValue: Int = player.bet
+        
+        player.asset -= betValue
+        potAmount += betValue
         
         potAmountLabel.text = String(potAmount)
+        
+        switchBetButton(player: player)
+        
         playerCollectionView.reloadData()
     }
     // TODO: touchUpChip005()
     @IBAction func touchUpChip005(_ sender: Any) {
         
+        let chipValue: Int = 5
+        
+        guard let player = selectedPlayer else { return }
+        
+        validateAsset(player: player, chip: chipValue)
+        
+        playerCollectionView.reloadData()
     }
     // TODO: touchUpChip010()
     @IBAction func touchUpChip010(_ sender: Any) {
         
+        let chipValue: Int = 10
+        
+        guard let player = selectedPlayer else { return }
+        
+        validateAsset(player: player, chip: chipValue)
+        
+        playerCollectionView.reloadData()
     }
     // TODO: touchUpChip050()
     @IBAction func touchUpChip050(_ sender: Any) {
         
+        let chipValue: Int = 50
+        
+        guard let player = selectedPlayer else { return }
+        
+        validateAsset(player: player, chip: chipValue)
+        
+        playerCollectionView.reloadData()
     }
     // TODO: touchUpChip100()
     @IBAction func touchUpChip100(_ sender: Any) {
         
+        let chipValue: Int = 100
+        
+        guard let player = selectedPlayer else { return }
+        
+        validateAsset(player: player, chip: chipValue)
+        
+        playerCollectionView.reloadData()
     }
     // TODO: longPressChipHStackView() - all-in
     @IBAction func longPressChipHStackView(_ sender: Any) {
         
+        guard let player = selectedPlayer else { return }
+        
+        // TODO: show alert that user really want to all-in
+        
+        player.bet = player.asset
+        
+        playerCollectionView.reloadData()
     }
     
 }
