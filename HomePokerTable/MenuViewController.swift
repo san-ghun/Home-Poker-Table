@@ -7,15 +7,23 @@
 
 import UIKit
 
-// TODO: Add player asset setting ViewController that show up as modal with pickerView to set asset value manually, minimum button and maximum button, and some label to let user know how to use it.
-// TODO: Asset value from min 5 to max 10000, in pickerView has interval 5.
-// TODO: Player number from min 2 to max 8. Pick by pickerView or tap-increment.
+/// The first ViewController that manage menu view.
+/// Provide two segue identifier to perform and send data.
+/// Can set the number of players to play and present the asset of player.
+///
+/// Views are implemented in `Main.storyboard` with the auto layout, but additional stylings are applied in the `MenuViewController` with code.
 class MenuViewController: UIViewController {
 
     // MARK: - Properties
+    
+    // Segue identifier properties.
+    // to manage navigation and perform segue to other views.
     let segueIdentifierToMenuPlayerAssetViewController: String = "mpaSegue"
     let segueIdentifierToPlayerViewController: String = "startSegue"
     
+    // Properties related to setting the number of players.
+    // User can set the number of players from 2 to 8, by tapping the `numberButton`
+    // Check the method, `IBAction func touchUpNumberButton()`.
     let playerNumbRange: [Int] = Array(2...8)
     var playerNumbRangeIndex: Int = 0
     var playerNumber: Int? {
@@ -28,6 +36,9 @@ class MenuViewController: UIViewController {
             return "x " + "\(playerNumber ?? 2)"
         }
     }
+    
+    // Property to set the asset for player, default value set as 1000.
+    // User can change the value from the `MenuPlayerAssetView`.
     var playerAsset: Int = 1000
     
     // MARK: IBOutlets
@@ -39,16 +50,18 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // Initiate the text title of buttons
         self.numberButton.setTitle(self.playerNumbForm, for: .normal)
         self.assetButton.setTitle("\(self.playerAsset)", for: .normal)
 
-        
-        self.applyStyleToComponents()
+        // Apply style to UI components
+        self.addStyleToComponents()
         
         // Add TapGestureRecognizer to playerView to show MenuPlayerAssetViewController
         let playerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpPlayerView(_:)))
@@ -56,6 +69,8 @@ class MenuViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        // Update the text title of asset button to the changed value of the asset of player
         self.assetButton.setTitle("\(self.playerAsset)", for: .normal)
     }
 
@@ -84,8 +99,8 @@ class MenuViewController: UIViewController {
     
     // MARK: Custom Methods
     
-    // MARK: Methods to style UI components
-    func applyStyleToComponents() {
+    /// A method to consolidate and apply all component styling methods
+    func addStyleToComponents() {
         
         // TODO: Which would be the better code to apply radius on views?
         
@@ -108,14 +123,17 @@ class MenuViewController: UIViewController {
         */
         
         // Option 2
+        // Apply raidus to ui components
         self.addRadiusToView(uiView: self.howToView, radius: 10)
         self.addRadiusToView(uiView: self.playerView, radius: 20)
         self.addRadiusToView(uiView: self.numberButton, radius: 20)
         self.addRadiusToView(uiView: self.resetButton, radius: 20)
         self.addRadiusToView(uiView: self.startButton, radius: 20)
         
+        // Apply border to `playerView`
         self.addBorderToPlayerView()
         
+        // Apply highlight style to `playerLabel`
         self.addStyleToPlayerLabel()
     }
     
@@ -134,32 +152,36 @@ class MenuViewController: UIViewController {
         guard let button = self.playerLabel else { return }
         button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
         button.layer.cornerRadius = 20
+        // apply corner radius only to upper corners
         button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     
     // MARK: IBActions
+    
+    /// Perform segue to PlayerViewController.
     @IBAction func touchUpPlayerView(_ sender: Any) {
         
-        // option 1 / NotWork
+        // option 1 / not work
 //        let rootVC = MenuPlayerAssetViewController()
 //        let navVC = UINavigationController(rootViewController: rootVC)
 //        present(navVC, animated: true, completion: nil)
         
-        // option 2 / PrettyGood
+        // option 2 / pretty good
 //        let rootVC = storyboard?.instantiateViewController(withIdentifier: "mpaVC") as! MenuPlayerAssetViewController
 //        present(rootVC, animated: true, completion: nil)
         
-        // option 3 / WorkButUgly
+        // option 3 / work but ugly
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "mpaVC") as? MenuPlayerAssetViewController
 //        view.window?.rootViewController = vc
 //        view.window?.makeKeyAndVisible()
         
-        // option 4 / PrettyGood
-        performSegue(withIdentifier: "mpaSegue", sender: nil)
+        // option 4 / pretty good
+        performSegue(withIdentifier: segueIdentifierToPlayerViewController, sender: nil)
         
     }
     
+    /// Increment `playerNumbRangeIndex` to max and reset to 0, and set the text title of `numberButton`.
     @IBAction func touchUpNumberButton(_ sender: Any) {
         if self.playerNumbRangeIndex < 6 {
             self.playerNumbRangeIndex += 1
@@ -170,6 +192,7 @@ class MenuViewController: UIViewController {
         self.numberButton.setTitle(self.playerNumbForm, for: .normal)
     }
     
+    /// Reset the values and text titles for number of player and asset of player to default.
     @IBAction func touchUpResetButton(_ sender: Any) {
         self.playerNumbRangeIndex = 0
         self.playerAsset = 1000
