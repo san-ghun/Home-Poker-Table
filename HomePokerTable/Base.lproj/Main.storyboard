@@ -629,6 +629,7 @@ for each player.</string>
                         <outlet property="chip100Button" destination="glq-9Z-BJV" id="sts-Zd-pAB"/>
                         <outlet property="chipHStackView" destination="ecT-sJ-X6C" id="5YP-I6-h7o"/>
                         <outlet property="clearButton" destination="RMp-TR-Snk" id="JZz-pg-Gph"/>
+                        <outlet property="editButton" destination="hN6-vy-dLg" id="aDV-qj-Fh3"/>
                         <outlet property="playerCollectionView" destination="XbY-cq-0e7" id="XNy-RP-Yzc"/>
                         <outlet property="potAmountLabel" destination="h9J-jE-uaI" id="NVJ-GE-mui"/>
                     </connections>

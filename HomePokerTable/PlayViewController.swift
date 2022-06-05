@@ -8,7 +8,7 @@
 import UIKit
 
 /*
- TODO: Complete CollectionView and custom collectionViewCell
+ TODO: Make back button on navigation bar to show alert when tapped
  */
 class PlayViewController: UIViewController {
 
@@ -21,13 +21,14 @@ class PlayViewController: UIViewController {
     let model = PlayerModel()
     var playersArray: [Player] = []
     
-    // Indicate which player have selected
+    // Indicate which cell and player have selected
     var selectedPlayerIndex: IndexPath?
     var selectedPlayerCell: PlayerCollectionViewCell?
     var selectedPlayer: Player?
     
     // MARK: IBOutlets
     @IBOutlet weak var potAmountLabel: UILabel!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var awardButton: UIButton!
     @IBOutlet weak var playerCollectionView: UICollectionView!
     @IBOutlet weak var clearButton: UIButton!
@@ -57,7 +58,7 @@ class PlayViewController: UIViewController {
         // Add style to components
         self.applyStyleToComponents()
         
-        // TODO: Add LongPressGestureRecognizer to chipHStackView to all-in
+        // Add LongPressGestureRecognizer to chipHStackView to perform all-in
         let chipHStackViewLongPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressChipHStackView(_:)))
         self.chipHStackView.addGestureRecognizer(chipHStackViewLongPressGesture)
     }
@@ -77,9 +78,15 @@ class PlayViewController: UIViewController {
     // MARK: - Methods
     
     // MARK: Custom Methods
+    
     /// A method to Activate and Deactivate betButton
-    func switchBetButton(player: Player) {
-        if player.isActive {
+    func switchBetButton(player: Player?) {
+        guard let player = player else {
+            self.betButton.alpha = 0.5
+            self.betButton.isEnabled = false
+            return
+        }
+        if player.isActive && (player.raise > 0) {
             self.betButton.alpha = 1
             self.betButton.isEnabled = true
         }
@@ -92,22 +99,22 @@ class PlayViewController: UIViewController {
     /// A method to initiate bets of players to zero, after the win
     func initiateBets() {
         guard !playersArray.isEmpty else { return }
-        let tempArray: [Player] = playersArray.map({ (player: Player) -> Player in
+        playersArray = playersArray.map({ (player: Player) -> Player in
             player.bet = 0
+            player.raise = 0
             return player
         })
-        self.playersArray = tempArray
     }
     
     /// A method that check the asset of player and automatically set the betting value to the proper value
     func validateAsset(player: Player, chip: Int) {
         
-        // validate player's asset is affordable to bet
-        if player.bet + chip <= player.asset {
-            player.bet += chip
+        // validate asset of player is affordable to bet
+        if player.bet + player.raise + chip <= player.asset {
+            player.raise += chip
         }
         else {
-            player.bet = player.asset
+            player.raise = player.asset - player.bet
         }
     }
     
@@ -154,8 +161,24 @@ class PlayViewController: UIViewController {
     
     
     // MARK: IBActions
-    // TODO: touchUpAwardButton()
     @IBAction func touchUpAwardButton(_ sender: Any) {
+        
+        let unresolvedPlayersArray: [Player] = playersArray.filter { $0.raise != 0 }
+        if !unresolvedPlayersArray.isEmpty {
+            print("There is a unresolved player who has some raise value to confirm bet")
+            // TODO:
+            //showAlert()
+            return
+        }
+        
+        let betsArray: [Int] = playersArray.map { $0.bet }
+        let assetsArray: [Int] = playersArray.map { $0.asset }
+        let resultsArray: [Int] = zip(assetsArray, betsArray).map { $0 - $1 }
+        
+        playersArray = zip(playersArray, resultsArray).map({ (player: Player, result: Int) -> Player in
+            player.asset = result
+            return player
+        })
         
         guard let player = selectedPlayer else { return }
         player.asset += potAmount
@@ -165,35 +188,39 @@ class PlayViewController: UIViewController {
         
         initiateBets()
         
+        switchBetButton(player: player)
+        
         playerCollectionView.reloadData()
     }
-    // TODO: touchUpClearButton()
+    
     @IBAction func touchUpClearButton(_ sender: Any) {
-        guard let player = selectedPlayer else { return }
-        
-        potAmountLabel.text = String(potAmount)
-        
-        player.bet = 0
-        
-        playerCollectionView.reloadData()
-    }
-    // TODO: touchUpBetButton()
-    @IBAction func touchUpBetButton(_ sender: Any) {
         
         guard let player = selectedPlayer else { return }
         
-        let betValue: Int = player.bet
-        
-        player.asset -= betValue
-        potAmount += betValue
-        
-        potAmountLabel.text = String(potAmount)
+        player.raise = 0
         
         switchBetButton(player: player)
         
         playerCollectionView.reloadData()
     }
-    // TODO: touchUpChip005()
+    
+    @IBAction func touchUpBetButton(_ sender: Any) {
+        
+        guard let player = selectedPlayer else { return }
+        
+        let raiseValue: Int = player.raise
+        
+        potAmount += raiseValue
+        potAmountLabel.text = String(potAmount)
+        
+        player.bet += player.raise
+        player.raise = 0
+        
+        switchBetButton(player: player)
+        
+        playerCollectionView.reloadData()
+    }
+    
     @IBAction func touchUpChip005(_ sender: Any) {
         
         let chipValue: Int = 5
@@ -202,9 +229,11 @@ class PlayViewController: UIViewController {
         
         validateAsset(player: player, chip: chipValue)
         
+        switchBetButton(player: player)
+        
         playerCollectionView.reloadData()
     }
-    // TODO: touchUpChip010()
+    
     @IBAction func touchUpChip010(_ sender: Any) {
         
         let chipValue: Int = 10
@@ -213,9 +242,11 @@ class PlayViewController: UIViewController {
         
         validateAsset(player: player, chip: chipValue)
         
+        switchBetButton(player: player)
+        
         playerCollectionView.reloadData()
     }
-    // TODO: touchUpChip050()
+    
     @IBAction func touchUpChip050(_ sender: Any) {
         
         let chipValue: Int = 50
@@ -224,9 +255,11 @@ class PlayViewController: UIViewController {
         
         validateAsset(player: player, chip: chipValue)
         
+        switchBetButton(player: player)
+        
         playerCollectionView.reloadData()
     }
-    // TODO: touchUpChip100()
+    
     @IBAction func touchUpChip100(_ sender: Any) {
         
         let chipValue: Int = 100
@@ -235,16 +268,21 @@ class PlayViewController: UIViewController {
         
         validateAsset(player: player, chip: chipValue)
         
+        switchBetButton(player: player)
+        
         playerCollectionView.reloadData()
     }
-    // TODO: longPressChipHStackView() - all-in
+    
     @IBAction func longPressChipHStackView(_ sender: Any) {
         
         guard let player = selectedPlayer else { return }
         
         // TODO: show alert that user really want to all-in
+        //showAlert()
         
-        player.bet = player.asset
+        player.raise = player.asset - player.bet
+        
+        switchBetButton(player: player)
         
         playerCollectionView.reloadData()
     }
@@ -305,35 +343,54 @@ extension PlayViewController: UICollectionViewDelegate {
         
         // Get a reference to the player that cell have
         guard let player = cell.player else { fatalError("Could not get player from cell") }
-
+        
+        dump(player)
+        
         // Check the status of the player to determine the selection
         if player.isSelected == false {
-
-            // Select on the player
-            cell.selectOn()
-
+            
             // Check if this is first player that was selected
-            // if not, turn off the selection of previously selected cell
+            // if not, check the previously selected player left some raise value not bet, and if not, turn off the selection of previously selected cell
             if selectedPlayerIndex != nil && selectedPlayerIndex != indexPath {
-
-                // Get the collection view Cell that represent preSelected player
-                guard let selectionIndex = selectedPlayerIndex else { fatalError("Could not get selected player indexPath") }
-                let preSelectedPlayerCell = playerCollectionView.cellForItem(at: selectionIndex) as? PlayerCollectionViewCell
-
+                
+                // Get the Player instance that represent preSelected player
+                guard let preSelectedPlayer = selectedPlayer else { fatalError("Could not get pre-selected player") }
+                
+                // Check preSelected player left some raise value
+                if preSelectedPlayer.raise != 0 {
+                    
+                    // TODO: if there some left raise value, show alert and return the method
+                    //showAlert()
+                    print("preSelected player raise value not resolved")
+                    return
+                }
+                
                 // Turn off the selection of preSelected player
-                preSelectedPlayerCell?.selectOff()
+                preSelectedPlayer.isSelected = false
             }
-
+            
+            // Select on the player
+            player.isSelected = true
+            
             // Set new selected player and player index
             selectedPlayer = player
             selectedPlayerCell = cell
             selectedPlayerIndex = indexPath
             
         }
+//        else {
+//            player.isSelected = false
+//
+//            selectedPlayer = nil
+//            selectedPlayerCell = nil
+//            selectedPlayerIndex = nil
+//        }
         
         // Set the Bet button activation
-        switchBetButton(player: player)
+        switchBetButton(player: selectedPlayer)
         
+        // Reload the collection view
+        playerCollectionView.reloadData()
     }
     
 }

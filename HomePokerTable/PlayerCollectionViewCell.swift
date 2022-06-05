@@ -29,7 +29,7 @@ class PlayerCollectionViewCell: UICollectionViewCell {
         
         // Set the title and label to the view the represents the player
         playerButton.setTitle(player.name, for: .normal)
-        betLabel.text = String(player.bet)
+        betLabel.text = String(player.bet + player.raise)
         assetLabel.text = String(player.asset)
         
         // Apply Style to cell
@@ -86,13 +86,11 @@ class PlayerCollectionViewCell: UICollectionViewCell {
     func selectOn() {
         guard let button = self.playerButton else { return }
         button.layer.backgroundColor = UIColor(red: 0.439, green: 0.561, blue: 0.392, alpha: 1).cgColor
-        player?.isSelected = true
     }
     
     func selectOff() {
         guard let button = self.playerButton else { return }
         button.layer.backgroundColor = .none
-        player?.isSelected = false
     }
     
     // MARK: A method to Activate and Deactivate playerButton
