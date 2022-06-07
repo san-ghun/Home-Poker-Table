@@ -23,7 +23,6 @@ class PlayerModel {
             // Set data of player
             player.number = i
             player.asset = assetOfPlayers
-            player.isActive = true
             
             // Add player to the array
             generatedPlayers.append(player)
