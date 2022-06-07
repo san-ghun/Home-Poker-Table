@@ -29,7 +29,7 @@ class PlayViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var potAmountLabel: UILabel!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    @IBOutlet weak var awardButton: UIButton!
+    @IBOutlet weak var winButton: UIButton!
     @IBOutlet weak var playerCollectionView: UICollectionView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var betButton: UIButton!
@@ -120,7 +120,7 @@ class PlayViewController: UIViewController {
     
     // MARK: Methods to style UI components
     func applyStyleToComponents() {
-        self.addRadiusToView(uiView: self.awardButton, radius: 20)
+        self.addRadiusToView(uiView: self.winButton, radius: 20)
         self.addRadiusToView(uiView: self.clearButton, radius: 20)
         self.addRadiusToView(uiView: self.betButton, radius: 20)
     }
@@ -161,7 +161,7 @@ class PlayViewController: UIViewController {
     
     
     // MARK: IBActions
-    @IBAction func touchUpAwardButton(_ sender: Any) {
+    @IBAction func touchUpWinButton(_ sender: Any) {
         
         let unresolvedPlayersArray: [Player] = playersArray.filter { $0.raise != 0 }
         if !unresolvedPlayersArray.isEmpty {

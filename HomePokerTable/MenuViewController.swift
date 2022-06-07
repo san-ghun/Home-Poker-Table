@@ -177,7 +177,7 @@ class MenuViewController: UIViewController {
 //        view.window?.makeKeyAndVisible()
         
         // option 4 / pretty good
-        performSegue(withIdentifier: segueIdentifierToPlayerViewController, sender: nil)
+        performSegue(withIdentifier: segueIdentifierToMenuPlayerAssetViewController, sender: nil)
         
     }
     
