@@ -61,7 +61,7 @@ class MenuPlayerAssetViewController: UIViewController {
             picker.selectRow(row, inComponent: 0, animated: false)
         }
         
-        self.addStyleToComponents()
+        self.applyStyleToComponents()
     }
     
 
@@ -79,14 +79,15 @@ class MenuPlayerAssetViewController: UIViewController {
     // MARK: - Methods
     
     // MARK: Custom Methods
-    func addStyleToComponents() {
+    
+    // MARK: Methods to style UI components
+    func applyStyleToComponents() {
         self.addRadiusToView(uiView: minButton, radius: 20)
         self.addRadiusToView(uiView: maxButton, radius: 20)
         self.addRadiusToView(uiView: cancelButton, radius: 20)
         self.addRadiusToView(uiView: setAssetButton, radius: 20)
     }
     
-    // MARK: Component Styling Methods
     func addRadiusToView(uiView: UIView?, radius: Int) {
         guard let view = uiView else { return }
         view.layer.cornerRadius = CGFloat(radius)

@@ -15,8 +15,14 @@ class Player {
             return "Player \(number)"
         }
     }
+    var bet: Int = 0
+    var raise: Int = 0
     var asset: Int = 5
     var isSelected: Bool = false
-    var isActive: Bool = false
+    var isActive: Bool {
+        get {
+            asset > 0
+        }
+    }
     
 }
