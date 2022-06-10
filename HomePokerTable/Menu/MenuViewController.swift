@@ -102,7 +102,7 @@ class MenuViewController: UIViewController {
     /// A method to consolidate and apply all component styling methods
     func addStyleToComponents() {
         
-        // TODO: Which would be the better code to apply radius on views?
+        // MARK: Which would be the better code to apply radius on views?
         
         // Option 1
         /*
