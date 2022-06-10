@@ -7,9 +7,6 @@
 
 import UIKit
 
-/*
- TODO: Make back button on navigation bar to show alert when tapped
- */
 class PlayViewController: UIViewController {
 
     // MARK: - Properties
@@ -28,7 +25,6 @@ class PlayViewController: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet weak var potAmountLabel: UILabel!
-    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var winButton: UIButton!
     @IBOutlet weak var playerCollectionView: UICollectionView!
     @IBOutlet weak var clearButton: UIButton!
@@ -45,6 +41,11 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Add UIBarButtons with action
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(touchUpDoneButton(_:)))
+        // TODO: Add edit button
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(touchUpEditButton(_:)))
         
         // Initiate pot value
         self.potAmountLabel.text = String(potAmount)
@@ -118,6 +119,24 @@ class PlayViewController: UIViewController {
         }
     }
     
+    /// A method show alert with input message
+    func showAlert(message: String) {
+        
+        //guard let player = selectedPlayer else { return }
+        
+        // Create alert
+        let alert = UIAlertController(title: "Confirm the Bet", message: message, preferredStyle: .alert)
+        
+        // Configure button handler
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        
+        // Add button
+        alert.addAction(okButton)
+        
+        // Show alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: Methods to style UI components
     func applyStyleToComponents() {
         self.addRadiusToView(uiView: self.winButton, radius: 20)
@@ -161,13 +180,37 @@ class PlayViewController: UIViewController {
     
     
     // MARK: IBActions
+    @IBAction func touchUpDoneButton(_ sender: Any) {
+        
+        // Create alert
+        let alert = UIAlertController(title: "Closing Game", message: "Will you close game?", preferredStyle: .alert)
+        
+        // Configure button handler
+        let closeButton = UIAlertAction(title: "Confirm", style: .destructive) { (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .default)
+        
+        // Add buttons
+        alert.addAction(closeButton)
+        alert.addAction(cancelButton)
+        
+        // Show alert
+        self.present(alert, animated: true)
+    }
+    
+    // TODO: @IBAction touchUpEditButton() to edit selected player data
+    @IBAction func touchUpEditButton(_ sender: Any) {
+        
+    }
+    
     @IBAction func touchUpWinButton(_ sender: Any) {
         
         let unresolvedPlayersArray: [Player] = playersArray.filter { $0.raise != 0 }
         if !unresolvedPlayersArray.isEmpty {
-            print("There is a unresolved player who has some raise value to confirm bet")
-            // TODO:
-            //showAlert()
+            let message = "Player didn't confirm the bet"
+            showAlert(message: message)
             return
         }
         
@@ -277,13 +320,76 @@ class PlayViewController: UIViewController {
         
         guard let player = selectedPlayer else { return }
         
-        // TODO: show alert that user really want to all-in
-        //showAlert()
+        // Create alert
+        let alert = UIAlertController(title: "Big Raise", message: "Specify raise or All-in!", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.keyboardType = .numberPad
+        }
         
-        player.raise = player.asset - player.bet
+        // Configure button handler
+        let raiseButton = UIAlertAction(title: "Raise", style: .default) { (action) in
+            
+            // Get the textfield for the alert
+            let textfield = alert.textFields![0]
+            let raiseInput = textfield.text
+            
+            // Adjust the player's raise
+            var adjustedRaiseInput: String {
+                
+                guard let raiseInput = raiseInput else {
+                    fatalError("Could not get textfield value")
+                }
+                
+                if raiseInput.isEmpty {
+                    return "0"
+                }
+                else if raiseInput.last == "5" {
+                    return raiseInput
+                }
+                
+                var adjusted: String = "0"
+                
+                guard let lastDigit: Int = raiseInput.last!.wholeNumberValue else { fatalError("Could not get last digit of raise") }
+                
+                if lastDigit / 5 == 1 {
+                    adjusted = raiseInput.dropLast()+"5"
+                } else {
+                    adjusted = raiseInput.dropLast()+"0"
+                }
+                
+                return adjusted
+            }
+            
+            // Convert type of raise from String to Int
+            guard let raise = Int(adjustedRaiseInput) else { fatalError("Could not get raise value")}
+            
+            // Check the player's raise and bet is valid
+            self.validateAsset(player: player, chip: raise)
+
+            self.switchBetButton(player: player)
+            self.playerCollectionView.reloadData()
+        }
+        
+        let allinButton = UIAlertAction(title: "All-in", style: .destructive) { (action) in
+            
+            // Set the raise of player to maximum for player
+            player.raise = player.asset - player.bet
+            
+            self.switchBetButton(player: player)
+            self.playerCollectionView.reloadData()
+        }
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        // Add buttons
+        alert.addAction(raiseButton)
+        alert.addAction(allinButton)
+        alert.addAction(cancelButton)
+        
+        // show alert
+        self.present(alert, animated: true)
         
         switchBetButton(player: player)
-        
         playerCollectionView.reloadData()
     }
     
@@ -359,9 +465,9 @@ extension PlayViewController: UICollectionViewDelegate {
                 // Check preSelected player left some raise value
                 if preSelectedPlayer.raise != 0 {
                     
-                    // TODO: if there some left raise value, show alert and return the method
-                    //showAlert()
-                    print("preSelected player raise value not resolved")
+                    // if there some left raise value, show alert and return the method
+                    let message = "\(preSelectedPlayer.name) didn't confirm the bet"
+                    showAlert(message: message)
                     return
                 }
                 
