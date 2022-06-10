@@ -47,6 +47,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD86832828535A7F00F994EB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BDDB837528352F1100565419 /* Player.swift */,
+				BD89AADC2835365C00E3678C /* PlayerModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BD86832928535A9800F994EB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BDEDE930280DCC0300439A5F /* Main.storyboard */,
+				BDEDE935280DCC0800439A5F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BD86832A28535B2600F994EB /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				BDEDE92E280DCC0300439A5F /* MenuViewController.swift */,
+				BD8223B4281C254100FDEB39 /* MenuPlayerAssetViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		BD86832B28535B3700F994EB /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				BDEDE93E280DE40500439A5F /* PlayViewController.swift */,
+				BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
 		BDEDE91E280DCC0300439A5F = {
 			isa = PBXGroup;
 			children = (
@@ -66,18 +102,14 @@
 		BDEDE929280DCC0300439A5F /* HomePokerTable */ = {
 			isa = PBXGroup;
 			children = (
+				BD86832828535A7F00F994EB /* Models */,
+				BD86832928535A9800F994EB /* Storyboards */,
+				BD86832A28535B2600F994EB /* Menu */,
+				BD86832B28535B3700F994EB /* Play */,
 				BDEDE92A280DCC0300439A5F /* AppDelegate.swift */,
 				BDEDE92C280DCC0300439A5F /* SceneDelegate.swift */,
-				BDEDE930280DCC0300439A5F /* Main.storyboard */,
-				BDEDE92E280DCC0300439A5F /* MenuViewController.swift */,
-				BD8223B4281C254100FDEB39 /* MenuPlayerAssetViewController.swift */,
-				BDEDE93E280DE40500439A5F /* PlayViewController.swift */,
-				BDC7B1D1280F3D6A00551BE3 /* PlayerCollectionViewCell.swift */,
 				BDEDE933280DCC0800439A5F /* Assets.xcassets */,
-				BDEDE935280DCC0800439A5F /* LaunchScreen.storyboard */,
 				BDEDE938280DCC0800439A5F /* Info.plist */,
-				BDDB837528352F1100565419 /* Player.swift */,
-				BD89AADC2835365C00E3678C /* PlayerModel.swift */,
 			);
 			path = HomePokerTable;
 			sourceTree = "<group>";
