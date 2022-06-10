@@ -623,9 +623,7 @@ for each player.</string>
                             <constraint firstItem="wap-sG-TEg" firstAttribute="trailing" secondItem="YhU-ct-eXj" secondAttribute="trailing" id="xEd-5p-Sze"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="NIb-HY-Uwr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hN6-vy-dLg"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="NIb-HY-Uwr"/>
                     <connections>
                         <outlet property="betButton" destination="pnc-fc-HLS" id="NU0-FG-Uvg"/>
                         <outlet property="chip005Button" destination="yw2-at-V03" id="KNW-d8-bcX"/>
@@ -634,7 +632,6 @@ for each player.</string>
                         <outlet property="chip100Button" destination="glq-9Z-BJV" id="sts-Zd-pAB"/>
                         <outlet property="chipHStackView" destination="ecT-sJ-X6C" id="5YP-I6-h7o"/>
                         <outlet property="clearButton" destination="RMp-TR-Snk" id="JZz-pg-Gph"/>
-                        <outlet property="editButton" destination="hN6-vy-dLg" id="aDV-qj-Fh3"/>
                         <outlet property="playerCollectionView" destination="XbY-cq-0e7" id="XNy-RP-Yzc"/>
                         <outlet property="potAmountLabel" destination="h9J-jE-uaI" id="NVJ-GE-mui"/>
                         <outlet property="winButton" destination="sQq-Gs-D0n" id="wgJ-Cv-CY5"/>
