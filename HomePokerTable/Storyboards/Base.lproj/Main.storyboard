@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8NC-Ir-0Ng">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -623,7 +624,6 @@ for each player.</string>
                             <constraint firstItem="wap-sG-TEg" firstAttribute="trailing" secondItem="YhU-ct-eXj" secondAttribute="trailing" id="xEd-5p-Sze"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="NIb-HY-Uwr"/>
                     <connections>
                         <outlet property="betButton" destination="pnc-fc-HLS" id="NU0-FG-Uvg"/>
                         <outlet property="chip005Button" destination="yw2-at-V03" id="KNW-d8-bcX"/>
