@@ -51,12 +51,12 @@
 ## About Home-Poker-Table
 
 <p align="center">
-<img src="docs/images/screenshots/0.png" width="160" />
-<img src="docs/images/screenshots/1.png" width="160" />
-<img src="docs/images/screenshots/2.png" width="160" />
-<img src="docs/images/screenshots/3.png" width="160" />
-<img src="docs/images/screenshots/4.png" width="160" />
-<img src="docs/images/screenshots/5.png" width="160" />
+<img src="docs/images/screenshots/0.png" width="150" />
+<img src="docs/images/screenshots/1.png" width="150" />
+<img src="docs/images/screenshots/2.png" width="150" />
+<img src="docs/images/screenshots/3.png" width="150" />
+<img src="docs/images/screenshots/4.png" width="150" />
+<img src="docs/images/screenshots/5.png" width="150" />
 </p>
 
 - Home-Poker-Table is a simple score calculator app built for people who want to enjoy playing cards games, such as, poker with friends and family, casually.
