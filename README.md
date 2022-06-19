@@ -28,7 +28,8 @@
 </p>
 <br>
 
-> -. First personal app development project, released on App Store.    
+> -. First personal app development project.    
+> -. One-person production, released on App Store.    
 > -. A simple chip calculator to have fun with friends and family.
 
 <br>
@@ -36,14 +37,13 @@
 \**Following contents are aimed for coders and developers, if you are not interested in those topics, please check more information on [Web Page for Home-Poker-Table](https://san-ghun.github.io/Home-Poker-Table/) or [App Store for Home-Poker-Table](https://apps.apple.com/app/home-poker-table/id1629143360). Thanks!* :)
 
 
----
-
 ## Table of contents
 - [About Home-Poker-Table](#about-home-poker-table)
 - [Features](#features)
 - [Folder Structure](#folder-structure)
 - [Version History](#version-history)
 - [What I Learned](#what-i-learned)
+    - [From start to release](#from-start-to-release)
 - [Future Work](#future-work)
 - [License](#license)
 
@@ -92,10 +92,10 @@
     Even if player put wrong value of raise in input, the app adjust the result.    
 
 > - **Game view of on-going play 2**    
-    Player's raise value will be shown on the digit of left bottom of player cell.
-    Player's raise value should be bet by tapping on the Bet button.
-    If not, the player's raise value will not be add to pot.
-    Also, an alert will show up when the player try to switch player or tap the Win button.
+    Player's raise value will be shown on the digit of left bottom of player cell.    
+    Player's raise value should be bet by tapping on the Bet button.    
+    If not, the player's raise value will not be add to pot.    
+    Also, an alert will show up when the player try to switch player or tap the Win button.    
 
 </details>
 
@@ -146,8 +146,6 @@
 - Plan to update continuously.
 - latest update: v1.0.0
 
-#### Update history
-
 > - v1.0.0: Release on App Store, 18 June 2022.
 > - start: Initial commit, 18 April 2022.
 
@@ -156,6 +154,11 @@
 
 
 ## What I Learned
+
+#### From start to release
+
+> - **Period**: 18 April 2022 - 17 June 2022 (60 days)
+> - **Time Taken**: 70 hours (Design + Development + Release)
 
 - Planning
     - How to decide minimum requirements for app.
@@ -185,10 +188,20 @@
 
 - App Release & Marketing
     - How to make landing page for the app.
-    - How to deal with Privacy Policy.
+    - How to deal with the Privacy Policy.
     - How to upload app build to the App Store Connect.
     - How to fill the form of App Store Connect.
     - How to deal with App Review.
+
+- etc.
+    - Designing was the most difficult part, both in UI and code structure.
+    - Found out that I am not good at color selection in designing. So, I got help from my friend.
+    - It was difficult to maintain motivation with one-person production.
+    - Apple App Store Review do not allow simulated gambling apps submitted by individual developers.
+    - Not this app, but definitely have to try to develop and release a paid app or a Admob equipped app, in future.
+    
+    
+<!-- - During my production, the Google was like the Jesus who is there for me when I am in trouble, and the Apple Developer Documentation was like the Holy Spirit who enpower me to do more things than I could. Lol. Thanks LORD! -->
 
 
 ## Future Work
